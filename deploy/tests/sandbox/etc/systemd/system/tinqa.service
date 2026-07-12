@@ -1,0 +1,13 @@
+[Unit]
+Description=TinQa Service
+After=network.target bluetooth.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/opt/tinqa
+ExecStart=/opt/tinqa/venv/bin/python /opt/tinqa/app/main.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

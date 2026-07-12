@@ -1,0 +1,5 @@
+NAME="Raspberry Pi OS"
+VERSION="Bookworm"
+ID=raspbian
+VERSION_ID="12"
+PRETTY_NAME="Raspberry Pi OS Bookworm"

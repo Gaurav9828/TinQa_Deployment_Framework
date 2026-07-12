@@ -1,0 +1,14 @@
+[Unit]
+Description=TinQa Weather Sync System
+After=network.target bluetooth.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/opt/tinqa
+ExecStart=/opt/tinqa/venv/bin/python -m app.main
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

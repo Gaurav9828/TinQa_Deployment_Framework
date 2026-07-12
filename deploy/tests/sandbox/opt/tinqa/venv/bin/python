@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+echo "Python 3.11.2"
+
+exit 0

@@ -1,0 +1,59 @@
+###############################################################################
+#
+# TinQa Deployment Framework
+#
+# Template : tinqa.service
+#
+# NOTE
+# ----
+# This file is processed by modules/08_systemd.sh.
+#
+# The following placeholders are replaced automatically:
+#
+# {{PROJECT_USER}}
+# {{PROJECT_GROUP}}
+# {{PROJECT_ROOT}}
+# {{PYTHON_EXECUTABLE}}
+# {{PYTHONPATH}}
+#
+###############################################################################
+
+[Unit]
+
+Description=TinQa Weather Sync System
+
+After=network.target bluetooth.service NetworkManager.service
+
+Wants=bluetooth.service NetworkManager.service
+
+###############################################################################
+
+[Service]
+
+Type=simple
+
+User={{PROJECT_USER}}
+
+Group={{PROJECT_GROUP}}
+
+WorkingDirectory={{PROJECT_ROOT}}
+
+ExecStart={{PYTHON_EXECUTABLE}} -m app.main
+
+Restart=always
+
+RestartSec=5
+
+Environment=PYTHONUNBUFFERED=1
+
+Environment=PYTHONPATH={{PYTHONPATH}}
+
+StandardOutput=journal
+
+StandardError=journal
+
+###############################################################################
+
+[Install]
+
+WantedBy=multi-user.target
