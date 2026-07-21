@@ -3,11 +3,11 @@
 #
 # TinQa Deployment Framework
 #
-# File        : 04_python_environment.sh
+# File        : 03_system_packages.sh
 # Version     : 1.0.0
 #
 # Description :
-# Creates and validates Python virtual environment.
+# Installs and validates required system packages.
 #
 ###############################################################################
 
@@ -27,112 +27,110 @@ DEPLOY_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 
 source "${DEPLOY_ROOT}/core/logger.sh"
 
-source "${DEPLOY_ROOT}/config/files.conf"
-source "${DEPLOY_ROOT}/config/python_modules.conf"
+source "${DEPLOY_ROOT}/config/packages.conf"
 
 ###############################################################################
-# Verify Python
+# Update Repository
 ###############################################################################
 
-verify_python() {
+update_package_repository() {
 
-    log_info "Checking Python installation..."
+    log_info "Updating APT repository..."
 
-    command -v "${PYTHON_BINARY}" >/dev/null
+    sudo apt-get update
 
-    log_success "Python detected."
+    log_success "Repository updated."
 
 }
 
 ###############################################################################
-# Create Virtual Environment
+# Upgrade Existing Packages
 ###############################################################################
 
-create_virtual_environment() {
+upgrade_system_packages() {
 
-    log_info "Creating virtual environment..."
+    log_info "Upgrading installed packages..."
 
-    rm -rf "${VENV_DIRECTORY}"
+    sudo DEBIAN_FRONTEND=noninteractive \
+        apt-get upgrade -y
 
-    "${PYTHON_BINARY}" \
-        -m venv \
-        "${VENV_DIRECTORY}"
-
-    log_success "Virtual environment created."
+    log_success "System packages upgraded."
 
 }
 
 ###############################################################################
-# Activate Environment
+# Install Required Packages
 ###############################################################################
 
-activate_virtual_environment() {
+install_required_packages() {
 
-    log_info "Activating virtual environment..."
+    log_info "Installing required packages..."
 
-    # shellcheck disable=SC1091
-    source "${VENV_DIRECTORY}/bin/activate"
+    sudo DEBIAN_FRONTEND=noninteractive \
+        apt-get install -y \
+        "${APT_REQUIRED_PACKAGES[@]}"
 
-    log_success "Virtual environment activated."
+    log_success "Required packages installed."
 
 }
 
 ###############################################################################
-# Upgrade Pip
+# Verify Installed Packages
 ###############################################################################
 
-upgrade_pip() {
+verify_required_packages() {
 
-    log_info "Upgrading pip..."
+    log_info "Verifying installed packages..."
 
-    python -m pip install \
-        "${PIP_INSTALL_OPTIONS[@]}" \
-        "${PIP_BOOTSTRAP_PACKAGES[@]}"
+    local failed=0
 
-    log_success "Pip upgraded."
+    local package
+
+    for package in "${APT_REQUIRED_PACKAGES[@]}"
+    do
+
+        if dpkg -s "${package}" >/dev/null 2>&1
+        then
+
+            log_success "Verified : ${package}"
+
+        else
+
+            log_error "Missing : ${package}"
+
+            failed=1
+
+        fi
+
+    done
+
+    return "${failed}"
 
 }
 
 ###############################################################################
-# Verify Environment
+# Remove Unused Packages
 ###############################################################################
 
-verify_virtual_environment() {
+cleanup_packages() {
 
-    log_info "Verifying virtual environment..."
+    log_info "Removing unused packages..."
 
-    [[ -f "${VENV_DIRECTORY}/bin/python" ]]
+    sudo apt-get autoremove -y
 
-    [[ -f "${VENV_DIRECTORY}/bin/pip" ]]
+    sudo apt-get autoclean -y
 
-    log_success "Virtual environment verified."
+    log_success "Package cleanup completed."
 
 }
 
 ###############################################################################
-# Python Version
+# Package Summary
 ###############################################################################
 
-show_python_version() {
+package_summary() {
 
-    log_info "Python Version : $(python --version 2>&1)"
-
-    log_info "Pip Version    : $(pip --version)"
-
-}
-
-###############################################################################
-# Deactivate Environment
-###############################################################################
-
-deactivate_virtual_environment() {
-
-    if declare -F deactivate >/dev/null
-    then
-        deactivate
-    fi
-
-    log_success "Virtual environment deactivated."
+    log_info "Installed package count : ${#APT_REQUIRED_PACKAGES[@]}"
 
 }
 
@@ -140,25 +138,23 @@ deactivate_virtual_environment() {
 # Main
 ###############################################################################
 
-run_python_environment() {
+run_04_system_packages() {
 
-    section "Module 04 - Python Environment"
+    section "Module 03 - System Packages"
 
-    verify_python
+    update_package_repository
 
-    create_virtual_environment
+    upgrade_system_packages
 
-    activate_virtual_environment
+    install_required_packages
 
-    upgrade_pip
+    verify_required_packages
 
-    verify_virtual_environment
+    cleanup_packages
 
-    show_python_version
+    package_summary
 
-    deactivate_virtual_environment
-
-    log_success "Python environment completed."
+    log_success "System package installation completed."
 
 }
 
@@ -167,4 +163,4 @@ run_python_environment() {
 ###############################################################################
 
 export -f \
-    run_python_environment
+    run_04_system_packages

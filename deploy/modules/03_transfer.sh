@@ -123,7 +123,7 @@ show_transfer_statistics() {
 # Main
 ###############################################################################
 
-run_transfer() {
+run_03_transfer() {
 
     section "Module 02 - File Transfer"
 
@@ -146,4 +146,4 @@ run_transfer() {
 ###############################################################################
 
 export -f \
-    run_transfer
+    run_03_transfer

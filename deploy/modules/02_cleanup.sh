@@ -137,7 +137,7 @@ check_disk_space() {
 # Main
 ###############################################################################
 
-run_cleanup() {
+run_02_cleanup() {
 
     section "Module 01 - Cleanup"
 
@@ -154,4 +154,4 @@ run_cleanup() {
 # Public API
 ###############################################################################
 
-export -f run_cleanup
+export -f run_02_cleanup

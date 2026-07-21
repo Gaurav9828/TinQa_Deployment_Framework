@@ -1,0 +1,19 @@
+[Unit]
+Description=TinQa Deployment Resume
+After=network-online.target
+After=bluetooth.service
+After=NetworkManager.service
+
+[Service]
+
+Type=oneshot
+
+WorkingDirectory=/opt/tinqa
+
+ExecStart=/opt/tinqa/deploy/bootstrap/resume.sh
+
+RemainAfterExit=yes
+
+[Install]
+
+WantedBy=multi-user.target

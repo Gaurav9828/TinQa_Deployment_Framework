@@ -189,7 +189,7 @@ health_summary() {
 # Main
 ###############################################################################
 
-run_healthcheck() {
+run_10_healthcheck() {
 
     section "Module 09 - Health Check"
 
@@ -216,4 +216,4 @@ run_healthcheck() {
 ###############################################################################
 
 export -f \
-    run_healthcheck
+    run_10_healthcheck

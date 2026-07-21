@@ -191,7 +191,7 @@ deactivate_virtual_environment() {
 # Main
 ###############################################################################
 
-run_system_validation() {
+run_08_system_validation() {
 
     section "Module 07 - System Validation"
 
@@ -220,4 +220,4 @@ run_system_validation() {
 ###############################################################################
 
 export -f \
-    run_system_validation
+    run_08_system_validation

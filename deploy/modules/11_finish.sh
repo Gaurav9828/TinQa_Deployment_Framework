@@ -3,11 +3,11 @@
 #
 # TinQa Deployment Framework
 #
-# File        : 03_system_packages.sh
+# File        : 10_finish.sh
 # Version     : 1.0.0
 #
 # Description :
-# Installs and validates required system packages.
+# Final deployment tasks, diagnostics, cleanup and summary.
 #
 ###############################################################################
 
@@ -27,110 +27,91 @@ DEPLOY_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 
 source "${DEPLOY_ROOT}/core/logger.sh"
 
-source "${DEPLOY_ROOT}/config/packages.conf"
+source "${DEPLOY_ROOT}/diagnostics/system_info.sh"
+source "${DEPLOY_ROOT}/diagnostics/service_logs.sh"
+source "${DEPLOY_ROOT}/diagnostics/report.sh"
 
 ###############################################################################
-# Update Repository
+# Generate Diagnostics
 ###############################################################################
 
-update_package_repository() {
+generate_diagnostics() {
 
-    log_info "Updating APT repository..."
+    log_info "Generating diagnostics..."
 
-    sudo apt-get update
+    collect_system_information
 
-    log_success "Repository updated."
+    collect_service_logs
+
+    generate_report
+
+    log_success "Diagnostics generated."
 
 }
 
 ###############################################################################
-# Upgrade Existing Packages
+# Cleanup Temporary Files
 ###############################################################################
 
-upgrade_system_packages() {
+cleanup_temporary_files() {
 
-    log_info "Upgrading installed packages..."
+    log_info "Cleaning temporary files..."
 
-    sudo DEBIAN_FRONTEND=noninteractive \
-        apt-get upgrade -y
+    rm -rf "${TEMP_DIRECTORY}"/* 2>/dev/null || true
 
-    log_success "System packages upgraded."
+    log_success "Temporary files removed."
 
 }
 
 ###############################################################################
-# Install Required Packages
+# Display Deployment Summary
 ###############################################################################
 
-install_required_packages() {
+display_summary() {
 
-    log_info "Installing required packages..."
-
-    sudo DEBIAN_FRONTEND=noninteractive \
-        apt-get install -y \
-        "${APT_REQUIRED_PACKAGES[@]}"
-
-    log_success "Required packages installed."
+    deployment_finished
 
 }
 
 ###############################################################################
-# Verify Installed Packages
+# Session Statistics
 ###############################################################################
 
-verify_required_packages() {
+display_statistics() {
 
-    log_info "Verifying installed packages..."
+    echo
 
-    local failed=0
+    ui_line
 
-    local package
+    ui_center "DEPLOYMENT STATISTICS"
 
-    for package in "${APT_REQUIRED_PACKAGES[@]}"
-    do
+    ui_line
 
-        if dpkg -s "${package}" >/dev/null 2>&1
-        then
+    echo
 
-            log_success "Verified : ${package}"
+    printf "Started  : %s\n" "${DEPLOYMENT_START_TIME:-Unknown}"
 
-        else
+    printf "Finished : %s\n" "$(date)"
 
-            log_error "Missing : ${package}"
+    printf "Duration : %s seconds\n" "${SECONDS}"
 
-            failed=1
+    printf "Errors   : %s\n" "${ERROR_COUNT}"
 
-        fi
+    printf "Warnings : %s\n" "${WARNING_COUNT}"
 
-    done
+    printf "Logs     : %s\n" "${DEPLOYMENT_LOG_DIRECTORY}"
 
-    return "${failed}"
+    echo
 
 }
 
 ###############################################################################
-# Remove Unused Packages
+# Goodbye
 ###############################################################################
 
-cleanup_packages() {
+finish_message() {
 
-    log_info "Removing unused packages..."
-
-    sudo apt-get autoremove -y
-
-    sudo apt-get autoclean -y
-
-    log_success "Package cleanup completed."
-
-}
-
-###############################################################################
-# Package Summary
-###############################################################################
-
-package_summary() {
-
-    log_info "Installed package count : ${#APT_REQUIRED_PACKAGES[@]}"
+    goodbye
 
 }
 
@@ -138,23 +119,21 @@ package_summary() {
 # Main
 ###############################################################################
 
-run_system_packages() {
+run_11_finish() {
 
-    section "Module 03 - System Packages"
+    section "Module 10 - Finish"
 
-    update_package_repository
+    generate_diagnostics
 
-    upgrade_system_packages
+    cleanup_temporary_files
 
-    install_required_packages
+    display_summary
 
-    verify_required_packages
+    display_statistics
 
-    cleanup_packages
+    finish_message
 
-    package_summary
-
-    log_success "System package installation completed."
+    log_success "Deployment completed successfully."
 
 }
 
@@ -163,4 +142,4 @@ run_system_packages() {
 ###############################################################################
 
 export -f \
-    run_system_packages
+    run_11_finish

@@ -172,7 +172,7 @@ deactivate_virtual_environment() {
 # Main
 ###############################################################################
 
-run_python_packages() {
+run_06_python_packages() {
 
     section "Module 05 - Python Packages"
 
@@ -199,4 +199,4 @@ run_python_packages() {
 ###############################################################################
 
 export -f \
-    run_python_packages
+    run_06_python_packages

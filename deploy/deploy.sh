@@ -47,6 +47,10 @@ fi
 source "${DEPLOY_ROOT}/core/config.sh"
 source "${DEPLOY_ROOT}/core/logger.sh"
 source "${DEPLOY_ROOT}/core/banner.sh"
+source "${DEPLOY_ROOT}/core/execution/module_runner.sh"
+source "${DEPLOY_ROOT}/core/inspect.sh"
+source "${DEPLOY_ROOT}/core/planner/action_plan.sh"
+source "${DEPLOY_ROOT}/core/registry/modules.sh"
 
 ###############################################################################
 # Configuration
@@ -85,19 +89,25 @@ source "${DEPLOY_ROOT}/utils/project_scanner.sh"
 source "${DEPLOY_ROOT}/rollback/rollback.sh"
 
 ###############################################################################
-# Modules
+# Load Modules
 ###############################################################################
 
-source "${DEPLOY_ROOT}/modules/01_cleanup.sh"
-source "${DEPLOY_ROOT}/modules/02_transfer.sh"
-source "${DEPLOY_ROOT}/modules/03_system_packages.sh"
-source "${DEPLOY_ROOT}/modules/04_python_environment.sh"
-source "${DEPLOY_ROOT}/modules/05_python_packages.sh"
-source "${DEPLOY_ROOT}/modules/06_bluetooth.sh"
-source "${DEPLOY_ROOT}/modules/07_system_validation.sh"
-source "${DEPLOY_ROOT}/modules/08_systemd.sh"
-source "${DEPLOY_ROOT}/modules/09_healthcheck.sh"
-source "${DEPLOY_ROOT}/modules/10_finish.sh"
+while IFS= read -r module
+do
+    source "${module}"
+
+    module_name="$(basename "${module}" .sh)"
+
+    register_module "${module_name}"
+
+done < <(
+
+    find "${DEPLOY_ROOT}/modules" \
+        -maxdepth 1 \
+        -name "*.sh" \
+        | sort
+
+)
 
 ###############################################################################
 # Deployment Information
@@ -184,42 +194,46 @@ initialize_framework() {
 
 execute_modules() {
 
-    local modules=(
-        run_cleanup
-        run_transfer
-        run_system_packages
-        run_python_environment
-        run_python_packages
-        run_bluetooth
-        run_system_validation
-        run_systemd
-        run_healthcheck
-        run_finish
-    )
-
-    local total="${#modules[@]}"
-
+    local total="${#ACTIONS[@]}"
     local current=0
-
     local module
 
-    for module in "${modules[@]}"
+    if [[ "${total}" -eq 0 ]]
+    then
+        log_warning "No deployment actions planned."
+
+        return 0
+    fi
+
+    echo
+    echo "=============================================================="
+    echo "Executing Deployment Plan"
+    echo "=============================================================="
+    echo
+
+    for module in "${ACTIONS[@]}"
     do
         ((++current))
-
-        echo ">>> About to execute: ${module}"
 
         module_progress \
             "${current}" \
             "${total}" \
-            "${module}"
+            "${module#run_}"
 
-        echo ">>> Calling ${module}"
+        log_info "Executing ${module}"
 
-        "${module}"
+        run_module "${module}"
 
-        echo ">>> Finished ${module}"
+        log_success "Completed ${module}"
+
+        echo
+
     done
+
+    echo "=============================================================="
+    log_success "Deployment execution completed."
+    echo "=============================================================="
+    echo
 
 }
 
@@ -241,6 +255,15 @@ main() {
 
     initialize_framework
 
+    #
+    # Framework Phase
+    #
+    run_00_preflight
+    run_01_build_plan
+
+    #
+    # Deployment Phase
+    #
     execute_modules
 
     finish_framework

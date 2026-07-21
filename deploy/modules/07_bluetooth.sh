@@ -3,11 +3,11 @@
 #
 # TinQa Deployment Framework
 #
-# File        : 08_systemd.sh
+# File        : 06_bluetooth.sh
 # Version     : 1.0.0
 #
 # Description :
-# Creates, installs and enables the TinQa systemd service.
+# Configures and prepares Bluetooth services.
 #
 ###############################################################################
 
@@ -27,126 +27,134 @@ DEPLOY_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 
 source "${DEPLOY_ROOT}/core/logger.sh"
 
-source "${DEPLOY_ROOT}/config/files.conf"
 source "${DEPLOY_ROOT}/config/services.conf"
 
-###############################################################################
-# Template
-###############################################################################
-
-SERVICE_TEMPLATE="${DEPLOY_ROOT}/templates/tinqa.service.template"
-
-TEMP_SERVICE_FILE="${TEMP_DIRECTORY}/tinqa.service"
+source "${DEPLOY_ROOT}/validators/bluetooth.sh"
 
 ###############################################################################
-# Validate Template
+# Enable Bluetooth Service
 ###############################################################################
 
-validate_template() {
+enable_bluetooth_service() {
 
-    log_info "Checking systemd template..."
+    log_info "Enabling Bluetooth service..."
 
-    [[ -f "${SERVICE_TEMPLATE}" ]]
+    sudo systemctl enable "${BLUETOOTH_SERVICE_NAME}"
 
-    log_success "Template found."
+    log_success "Bluetooth service enabled."
 
 }
 
 ###############################################################################
-# Generate Service
+# Start Bluetooth Service
 ###############################################################################
 
-generate_service_file() {
+start_bluetooth_service() {
 
-    log_info "Generating systemd service..."
+    log_info "Starting Bluetooth service..."
 
-    mkdir -p "${TEMP_DIRECTORY}"
+    sudo systemctl restart "${BLUETOOTH_SERVICE_NAME}"
 
-    sed \
-        -e "s|{{PROJECT_USER}}|${PROJECT_USER}|g" \
-        -e "s|{{PROJECT_GROUP}}|${PROJECT_GROUP}|g" \
-        -e "s|{{PROJECT_ROOT}}|${PROJECT_ROOT}|g" \
-        -e "s|{{PYTHON_EXECUTABLE}}|${VENV_DIRECTORY}/bin/python|g" \
-        -e "s|{{PYTHONPATH}}|${PROJECT_ROOT}|g" \
-        "${SERVICE_TEMPLATE}" \
-        > "${TEMP_SERVICE_FILE}"
-
-    log_success "Service generated."
-}
-
-###############################################################################
-# Install Service
-###############################################################################
-
-install_service() {
-
-    log_info "Installing systemd service..."
-
-    sudo cp \
-        "${TEMP_SERVICE_FILE}" \
-        "${SYSTEMD_SERVICE_FILE}"
-
-    sudo chmod 644 "${SYSTEMD_SERVICE_FILE}"
-
-    log_success "Service installed."
+    log_success "Bluetooth service started."
 
 }
 
 ###############################################################################
-# Reload Systemd
+# Wait For Adapter
 ###############################################################################
 
-reload_systemd() {
+wait_for_adapter() {
 
-    log_info "Reloading systemd..."
+    log_info "Waiting for Bluetooth adapter..."
 
-    sudo systemctl daemon-reload
+    local retries=10
 
-    log_success "Systemd reloaded."
+    while (( retries > 0 ))
+    do
+
+        if bluetoothctl list | grep -q "${BLUETOOTH_ADAPTER}"
+        then
+
+            log_success "Bluetooth adapter detected."
+
+            return 0
+
+        fi
+
+        sleep 2
+
+        ((retries--))
+
+    done
+
+    log_error "Bluetooth adapter not detected."
+
+    return 1
 
 }
 
 ###############################################################################
-# Enable Service
+# Power Adapter
 ###############################################################################
 
-enable_service() {
+power_adapter() {
 
-    log_info "Enabling TinQa service..."
+    log_info "Powering Bluetooth adapter..."
 
-    sudo systemctl enable "${TINQA_SERVICE_NAME}"
+    bluetoothctl <<EOF >/dev/null
+power on
+quit
+EOF
 
-    log_success "Service enabled."
+    log_success "Bluetooth adapter powered."
 
 }
 
 ###############################################################################
-# Start Service
+# Enable Pairable
 ###############################################################################
 
-start_service() {
+enable_pairable() {
 
-    log_info "Starting TinQa service..."
+    log_info "Enabling pairable mode..."
 
-    sudo systemctl restart "${TINQA_SERVICE_NAME}"
+    bluetoothctl <<EOF >/dev/null
+pairable on
+quit
+EOF
 
-    log_success "Service started."
+    log_success "Pairable mode enabled."
 
 }
 
 ###############################################################################
-# Verify Installation
+# Enable Discoverable
 ###############################################################################
 
-verify_service() {
+enable_discoverable() {
 
-    log_info "Verifying installation..."
+    log_info "Enabling discoverable mode..."
 
-    systemctl status \
-        "${TINQA_SERVICE_NAME}" \
-        --no-pager >/dev/null
+    bluetoothctl <<EOF >/dev/null
+discoverable on
+quit
+EOF
 
-    log_success "Systemd installation verified."
+    log_success "Discoverable mode enabled."
+
+}
+
+###############################################################################
+# Validate Configuration
+###############################################################################
+
+validate_configuration() {
+
+    log_info "Running Bluetooth validation..."
+
+    validate_bluetooth
+
+    log_success "Bluetooth validation completed."
 
 }
 
@@ -154,25 +162,25 @@ verify_service() {
 # Main
 ###############################################################################
 
-run_systemd() {
+run_07_bluetooth() {
 
-    section "Module 08 - Systemd"
+    section "Module 06 - Bluetooth"
 
-    validate_template
+    enable_bluetooth_service
 
-    generate_service_file
+    start_bluetooth_service
 
-    install_service
+    wait_for_adapter
 
-    reload_systemd
+    power_adapter
 
-    enable_service
+    enable_pairable
 
-    start_service
+    enable_discoverable
 
-    verify_service
+    validate_configuration
 
-    log_success "Systemd configuration completed."
+    log_success "Bluetooth configuration completed."
 
 }
 
@@ -181,4 +189,4 @@ run_systemd() {
 ###############################################################################
 
 export -f \
-    run_systemd
+    run_07_bluetooth

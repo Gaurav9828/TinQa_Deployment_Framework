@@ -71,4 +71,4 @@ initialize_systemd
 # Execute Real Deployment
 ###############################################################################
 
-bash "${DEPLOY_ROOT}/deploy.sh"
+"${BASH}" "${DEPLOY_ROOT}/deploy.sh"

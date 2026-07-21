@@ -1,3 +1,13 @@
 #!/usr/bin/env bash
-set -Eeuo pipefail
 
+inspect_python() {
+
+    if remote_exec python3 --version >/dev/null 2>&1
+    then
+        inspect_set python yes
+    else
+        inspect_set python no
+    fi
+}
+
+export -f inspect_python

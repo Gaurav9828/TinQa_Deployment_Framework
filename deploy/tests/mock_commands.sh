@@ -110,8 +110,6 @@ systemctl() {
     local service_file="${FAKE_PI_ROOT}/etc/systemd/system/${service}.service"
     local running_file="${FAKE_PI_ROOT}/var/run/${service}.running"
 
-    local service_file="${FAKE_PI_ROOT}/etc/systemd/system/${service}.service"
-
     case "${command}" in
 
         list-unit-files)
@@ -342,7 +340,15 @@ pip() {
 
 apt() {
 
+    if [[ "${1:-}" == "--version" ]]
+    then
+        echo "apt 2.8.3"
+
+        return 0
+    fi
+
     mock_log "apt $*"
+
     return 0
 }
 
@@ -496,7 +502,21 @@ EOF
 
 hostname() {
 
-    echo "raspberrypi"
+    case "${1:-}" in
+
+        -s)
+            echo "raspberrypi"
+            ;;
+
+        -f)
+            echo "raspberrypi.local"
+            ;;
+
+        *)
+            echo "raspberrypi"
+            ;;
+
+    esac
 }
 
 ###############################################################################
@@ -612,6 +632,64 @@ EOF
 }
 
 ###############################################################################
+# ssh
+###############################################################################
+
+ssh() {
+
+    mock_log "ssh $*"
+
+    #
+    # Skip ssh options
+    #
+    while [[ "$1" == -* ]]
+    do
+        shift
+
+        #
+        # Skip option argument if needed
+        #
+        case "$1" in
+            -p|-i|-o)
+                shift
+                ;;
+        esac
+    done
+
+    #
+    # Skip hostname/user
+    #
+    shift
+
+    #
+    # Execute remaining command locally
+    #
+    "$@"
+}
+
+###############################################################################
+# scp
+###############################################################################
+
+scp() {
+
+    mock_log "scp $*"
+
+    return 0
+}
+
+###############################################################################
+# sshpass
+###############################################################################
+
+sshpass() {
+
+    shift
+
+    "$@"
+}
+
+###############################################################################
 # Export
 ###############################################################################
 
@@ -647,4 +725,7 @@ free \
 lsblk \
 journalctl \
 pgrep \
-dmesg
+dmesg \
+ssh \
+scp \
+sshpass
