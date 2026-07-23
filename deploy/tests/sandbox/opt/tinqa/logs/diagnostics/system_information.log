@@ -1,0 +1,1712 @@
+              total        used        free
+Mem:        4048576     1200000     2848576
+Filesystem     1M-blocks Used Available Use% Mounted on
+/dev/root          30000 5000     25000  17% /
+2: eth0: <UP>
+    inet 192.168.1.100/24
+2: eth0: <UP>
+    inet 192.168.1.100/24
+Controller 00:11:22:33:44:55
+Powered: yes
+Discoverable: yes
+Pairable: yes
+[MOCK] python3 --version
+[MOCK] pip3 --version
+[MOCK] dpkg -l
+● bluetooth.service - Fake Service
+     Loaded: loaded (/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/etc/systemd/system/bluetooth.service; enabled)
+     Active: active (running)
+● NetworkManager.service - Fake Service
+     Loaded: loaded (/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/etc/systemd/system/NetworkManager.service; enabled)
+     Active: inactive (dead)
+● tinqa.service - Fake Service
+     Loaded: loaded (/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/etc/systemd/system/tinqa.service; enabled)
+     Active: active (running)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          Deployment Session Finished
+                 Thank you for using TinQa Deployment Framework
+              total        used        free
+     Active: active (running)
+     Active: inactive (dead)
+     Loaded: loaded (${service_file}; enabled)
+     Loaded: loaded (${service_file}; enabled)
+    inet 192.168.1.100/24
+ _emit "                     Version ${LOGGER_VERSION}";
+ _emit "               TinQa Deployment Framework";
+ _emit ""
+ _emit ""
+ _emit ""
+ _emit "";
+ _emit "";
+ _emit "";
+ _emit "${BLUE}[INFO]${RESET} ${message}"
+ _emit "${CYAN}[DBG ]${RESET} ${message}"
+ _emit "${GREEN}[ OK ]${RESET} ${message}"
+ _emit "${RED}[FAIL]${RESET} ${message}"
+ _emit "${YELLOW}[WARN]${RESET} ${message}"
+ _emit "Log File     : ${LOG_FILE}";
+ _emit "Output";
+ _emit "Project      : ${PROJECT_NAME}";
+ _emit "Started      : $(_datetime)";
+ _emit "Target       : ${SSH_TARGET}";
+ _increment_counter error;
+ _increment_counter success;
+ _increment_counter warning;
+ _print_environment;
+ _write_log "${line}";
+ -f)
+ -m)
+ -p | -i | -o)
+ -r)
+ -s)
+ ;;
+ ;;
+ ;;
+ ;;
+ ;;
+ ;;
+ ;;
+ ;;
+ ;;
+ ;;
+ ;;
+ ;;
+ ;;
+ ;;
+ ;;
+ ;;
+ ;;
+ ;;
+ ;;
+ ;;
+ ;;
+ ;;
+ ;;
+ ;;
+ ;;
+ "${module}";
+ "${module}";
+ "$@"
+ "$@"
+ "$@"
+ "$@" > >(tee "${output_file}") 2> >(tee -a "${output_file}" 1>&2);
+ "$@";
+ ( cd "${root}" || exit 1;
+ (( skip )) && continue;
+ ((++count));
+ ((++count));
+ ((++elapsed));
+ ((++elapsed));
+ ((++elapsed));
+ [[ -d "${directory}" ]] || return 0;
+ [[ -d "${directory}" ]] || return 0;
+ [[ -e "${backup}" ]] || return 0;
+ [[ -f "${FAKE_PI_ROOT}/var/run/${service}.running" ]];
+ [[ -f "${file}" ]] || return 0;
+ [[ -f "${log}" ]] && cat "${log}";
+ [[ -f "${service_file}" ]];
+ [[ -z "${directory}" ]] && return 1;
+ [[ -z "${item}" ]] && continue;
+ [[ -z "${item}" ]] && continue;
+ [[ -z "${target}" ]] && return 1;
+ [[ ! -d "${directory}" ]] && return 1;
+ [[ ! -e "${source}" ]] && return 1;
+ [[ ! -e "${source}" ]] && return 1;
+ [[ ! -e "${target}" ]] && return 0;
+ [[ ! -e "${target}" ]] && return 1;
+ [[ ! -e "${target}" ]] && return 1;
+ [[ ! -f "${file}" ]] && return 1;
+ [[ "$(sha256 "${file}")" == "${expected}" ]]
+ [[ "${action}" == "$1" ]] && return 0;
+ [[ "${DEBUG_MODE:-0}" == "1" ]] || return 0;
+ };
+ };
+ *.tar.gz | *.tgz)
+ *.tar.xz)
+ *.zip)
+ *)
+ *)
+ *)
+ *)
+ *)
+● ${service}.service - Fake Service
+● ${service}.service - Fake Service
+ ACTION_REASONS+=("${reason}")
+ ACTION_REASONS=()
+ ACTIONS+=("${action}");
+ activate_virtual_environment;
+ activate_virtual_environment;
+ activate_virtual_environment;
+ append ""
+ append "Application Logs  : ${LOG_DIRECTORY}";
+ append "Deployment Logs   : ${DEPLOYMENT_LOG_DIRECTORY}";
+ append "Project Name      : ${PROJECT_NAME}";
+ append "Project Root      : ${PROJECT_ROOT}";
+ append "Project User      : ${PROJECT_USER}";
+ available="$(remote_exec df --output=avail / | tail -1)";
+ available="${available// /}";
+ BACKUP_ITEMS+=("${source}|${backup}")
+ bash -c "${command_string}" > >(tee "${output_file}") 2> >(tee -a "${output_file}" 1>&2);
+ break;
+ case "${archive}" in 
+ case "${command}" in 
+ case "$1" in 
+ cat <<EOF
+ cat <<EOF
+ cat <<EOF
+ cat <<EOF
+ cat > "${venv}/bin/activate" <<EOF
+ cat > "${venv}/bin/pip" <<'EOF'
+ cat > "${venv}/bin/python" <<'EOF'
+ check_dependency_health;
+ check_disk_space;
+ check_remote_command "/opt Exists" test -d /opt;
+ check_remote_command "APT Available" apt --version;
+ check_remote_command "Bluetooth Adapter" bluetoothctl list;
+ check_remote_command "Bluetooth Service" systemctl is-active bluetooth;
+ check_remote_command "Disk Accessible" df -h /;
+ check_remote_command "Internet Connectivity" ping -c1 8.8.8.8;
+ check_remote_command "Memory Accessible" free -m;
+ check_remote_command "NetworkManager Service" systemctl is-active NetworkManager;
+ check_remote_command "Python Installed" python3 --version;
+ check_remote_command "SSH Connection" hostname;
+ chmod "${permission}" "${target}"
+ chmod +x "${venv}/bin/activate"
+ chmod +x "${venv}/bin/pip";
+ chmod +x "${venv}/bin/python";
+ chown "${owner}" "${target}"
+ cleanup_old_logs;
+ cleanup_packages;
+ cleanup_previous_deployment;
+ cleanup_runtime_files;
+ cleanup_temp_directory;
+ collect_bluetooth_information;
+ collect_bluetooth_logs;
+ collect_cpu_information;
+ collect_deployment_logs;
+ collect_environment_information;
+ collect_host_information;
+ collect_journal_logs;
+ collect_kernel_logs;
+ collect_memory_information;
+ collect_network_information;
+ collect_network_logs;
+ collect_package_information;
+ collect_python_information;
+ collect_python_logs;
+ collect_reports;
+ collect_service_information;
+ collect_service_status;
+ collect_storage_information;
+ command cp -a "${src}/." "${dst}/"
+ command cp "$src" "$dst"
+ command mkdir -p "$(dirname "${dst}")";
+ command mkdir -p "${dst}";
+ command_exists "${cmd}"
+ command_string="$1";
+ compress_report;
+ copy_project_files;
+ cp -a "${backup}" "${source}";
+ cp -a "${directory}" "${backup}";
+ cp -a "${file}" "${backup}";
+ cp -Rf -- "${source}" "${destination}"
+ create_deployment_directory;
+ create_required_directories;
+ create_virtual_environment;
+ curl --fail --location --silent --show-error "${url}" -o "${destination}";
+ CURRENT_ERROR_CODE="${step_id}";
+ daemon-reload)
+ deactivate_virtual_environment;
+ deactivate_virtual_environment;
+ deactivate_virtual_environment;
+ deployment_summary;
+ deployment_summary;
+ disable)
+ do
+ do
+ do
+ do
+ do
+ do
+ do
+ done
+ done
+ done
+ done )
+ done < "${output_file}";
+ done < <(scan_project_structure "${source_root}");
+ done | sort;
+ done;
+ done;
+ done;
+ done;
+ done;
+ done;
+ done;
+ done;
+ done;
+ done;
+ done;
+ done;
+ draw_progress "${current}" "${total}" "${module}"
+ draw_progress "${current}" "${total}" "Steps"
+ dst="${FAKE_PI_ROOT}${dst}";
+ du -sh "${directory}" | cut -f1
+ duration=$((end_time-MODULE_START_TIME));
+ duration=$((end_time-start_time));
+ echo
+ echo
+ echo
+ echo
+ echo
+ echo -e "${CLR_BLUE}";
+ echo -e "${CLR_CYAN}";
+ echo -e "${CLR_GREEN}";
+ echo -e "${CLR_MAGENTA}";
+ echo -e "${CLR_RED}";
+ echo -e "${CLR_RESET}"
+ echo -e "${CLR_RESET}"
+ echo -e "${CLR_RESET}"
+ echo -e "${CLR_RESET}"
+ echo -e "${CLR_RESET}"
+ echo -e "${CLR_RESET}"
+ echo -e "${CLR_YELLOW}";
+ echo "              Module 00 - Remote Preflight";
+ echo "[FAIL] Validation failed after repair.";
+ echo "[INFO] Attempting automatic repair...";
+ echo "[PASS] Validation successful after repair.";
+ echo "[PASS] Validation successful.";
+ echo "[WARN] Validation failed.";
+ echo "==============================================================";
+ echo "==============================================================";
+ echo "==============================================================";
+ echo "==============================================================";
+ echo "==============================================================";
+ echo "==============================================================";
+ echo "==============================================================";
+ echo "==============================================================";
+ echo "${ACTION_REASONS[$index]:-}"
+ echo "${INSPECT_VALUES[$i]}";
+ echo "1234";
+ echo "6.6.20-v8+"
+ echo "aarch64"
+ echo "apt 2.8.3";
+ echo "DEBUG: checking ${FAKE_PI_ROOT}/var/run/${service}.running";
+ echo "DEBUG: result=$?";
+ echo "DEBUG: service=${service}";
+ echo "Deployment Plan";
+ echo "ERROR_COUNT   = ${ERROR_COUNT}";
+ echo "Errors encountered:";
+ echo "Executing ${module}";
+ echo "Inspection Result";
+ echo "Linux"
+ echo "Python 3.11.9";
+ echo "raspberrypi.local"
+ echo "raspberrypi"
+ echo "raspberrypi"
+ echo "Remote machine passed basic validation.";
+ echo "REMOTE_HOST not configured.";
+ echo "Retrying...";
+ echo "Rollback Dir   : ${ROLLBACK_DIRECTORY}";
+ echo "Rollback Items : ${#BACKUP_ITEMS[@]}";
+ echo "Running Validation...";
+ echo "WARNING_COUNT = ${WARNING_COUNT}";
+ echo "Warnings encountered:";
+ echo;
+ echo;
+ echo;
+ echo;
+ echo;
+ echo;
+ echo;
+ echo;
+ echo;
+ echo;
+ echo;
+ echo;
+ echo;
+ echo;
+ echo;
+ echo;
+ else
+ else
+ else
+ else
+ else
+ else
+ else
+ else
+ else
+ else
+ else
+ else
+ else
+ else
+ empty=$(( width - filled ));
+ enable_bluetooth_service;
+ enable_discoverable;
+ enable_pairable;
+ enable_service;
+ enable)
+ end_time=$(date +%s);
+ end_time=$(date +%s);
+ entry="${BACKUP_ITEMS[$i]}";
+ error_banner;
+ ERROR_MESSAGES+=("${message}");
+ esac
+ esac
+ esac
+ esac
+ esac
+ esac;
+ exit 1
+ exit_code=$?;
+ exit_code=$?;
+ export "$1";
+ export LOG_FILE;
+ export MOCK_BLUETOOTH_DIR
+ export MOCK_SUDOERS_DIR;
+ export MOCK_SYSTEMD_DIR;
+ failed=1;
+ fi
+ fi
+ fi
+ fi
+ fi
+ fi
+ fi
+ fi
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ fi;
+ filled=$(( current * width / total ));
+ find . -print | sed 's|^\./||' | sort | while IFS= read -r item; do
+ find "${directory}" -mindepth 1 -delete
+ finish_logger;
+ for ((i=${#BACKUP_ITEMS[@]}-1; i>=0; i--))
+ for ((i=0; i<${#ACTIONS[@]}; i++))
+ for ((i=0; i<${#INSPECT_KEYS[@]}; i++))
+ for ((i=0; i<${#INSPECT_KEYS[@]}; i++))
+ for action in "${ACTIONS[@]}";
+ for key in "${!INSPECT[@]}";
+ for pattern in "${EXCLUDED_PATTERNS[@]:-}";
+ freeze_packages;
+ FUNCTIONAL_FAIL_COUNT=0;
+ FUNCTIONAL_PASS_COUNT=0;
+ functional_summary;
+ functional_tests_execute;
+ generate_service_file;
+ grep -qi "Raspberry" /proc/device-tree/model
+ health_report_actions;
+ health_report_bluetooth;
+ health_report_disk;
+ health_report_execute;
+ health_report_footer;
+ health_report_header;
+ health_report_memory;
+ health_report_reboot;
+ health_report_services;
+ health_report_summary;
+ health_report_system;
+ if ! process_running "${process}"; then
+ if ! service_running "${service}"; then
+ if ! sudo systemctl daemon-reload; then
+ if ! sudo systemctl enable "${TINQA_SERVICE_NAME}"; then
+ if ! sudo systemctl restart "${TINQA_SERVICE_NAME}"; then
+ if ! systemctl is-active --quiet "${BLUETOOTH_SERVICE_NAME}"; then
+ if ! target_exec ping -c1 8.8.8.8 > /dev/null 2>&1; then
+ if ! target_exec ping -c1 8.8.8.8 > /dev/null 2>&1; then
+ if ! target_exec sudo apt update; then
+ if "${validator}"; then
+ if "${validator}"; then
+ if "$@"; then
+ if "$@"; then
+ if (( ${#ERROR_MESSAGES[@]} > 0 )); then
+ if (( ${#WARNING_MESSAGES[@]} > 0 )); then
+ if (( count >= retries )); then
+ if (( count >= retries )); then
+ if (( current == total )); then
+ if (( current == total )); then
+ if (( FUNCTIONAL_FAIL_COUNT == 0 )); then
+ if (( total > 0 )); then
+ if [[ -e "${destination_root}/${item}" ]]; then
+ if [[ -f "${FAKE_PI_ROOT}/var/run/${service}.running" ]]; then
+ if [[ -f "${service_file}" ]]; then
+ if [[ -n "${reason}" ]]; then
+ if [[ -s "${output_file}" ]]; then
+ if [[ "${available}" -gt 500000 ]]; then
+ if [[ "${DEPLOY_MODE}" == "TEST" ]]; then
+ if [[ "${dst}" == /* ]]; then
+ if [[ "${ERROR_COUNT}" -gt 0 ]]; then
+ if [[ "${INSPECT_KEYS[$i]}" == "${key}" ]]; then
+ if [[ "${INSPECT_KEYS[$i]}" == "${key}" ]]; then
+ if [[ "${item}" == ${pattern} || "${item}" == ${pattern}/* || "${item}" == */${pattern} || "${item}" == */${pattern}/* ]]; then
+ if [[ "${MOCK_PGREP_FAIL:-0}" == "1" ]]; then
+ if [[ "${WARNING_COUNT}" -gt 0 ]]; then
+ if [[ "$1" == "-m" && "$2" == "venv" ]]; then
+ if [[ ${ERROR_COUNT} -eq 0 ]]; then
+ if [[ ${exit_code} -eq 0 ]]; then
+ if [[ ${exit_code} -ne 0 ]]; then
+ if [[ ${rc} -ne 0 ]]; then
+ if [[ $# -eq 1 ]]; then
+ if [[ $# -eq 1 ]]; then
+ if bluetoothctl list | grep -q "^Controller"; then
+ if bluetoothctl show | grep -q "Discoverable: yes"; then
+ if bluetoothctl show | grep -q "Pairable: yes"; then
+ if bluetoothctl show | grep -q "Powered: yes"; then
+ if command_exists curl; then
+ if command_exists wget; then
+ if declare -F "${validator}" > /dev/null; then
+ if remote_exec bluetoothctl list > /dev/null 2>&1; then
+ if remote_exec bluetoothctl list > /dev/null 2>&1; then
+ if remote_exec ping -c1 8.8.8.8 > /dev/null 2>&1; then
+ if remote_exec ping -c1 8.8.8.8 > /dev/null 2>&1; then
+ if remote_exec python3 --version > /dev/null 2>&1; then
+ if remote_exec python3 --version > /dev/null 2>&1; then
+ if remote_exec sudo apt update > /dev/null 2>&1; then
+ if remote_exec sudo apt update > /dev/null 2>&1; then
+ if remote_exec systemctl is-active bluetooth > /dev/null 2>&1; then
+ if remote_exec systemctl is-active tinqa.service > /dev/null 2>&1; then
+ if remote_exec test -f /opt/tinqa/main.py; then
+ if service_running "${service}"; then
+ if systemctl is-active --quiet "${BLUETOOTH_SERVICE_NAME}"; then
+ if target_exec test -d "${VENV_DIRECTORY}"; then
+ if target_exec test -d "${VENV_DIRECTORY}"; then
+ if target_exec test -f /var/run/reboot-required; then
+ IFS='|' read -r source backup <<< "${entry}";
+ inspect_clear;
+ inspect_dump;
+ inspect_dump;
+ INSPECT_KEYS+=("${key}");
+ inspect_no bluetooth_ok && plan_add run_09_bluetooth "Bluetooth adapter unavailable";
+ inspect_no bluetooth_ok && repair_bluetooth;
+ inspect_no internet && repair_network;
+ inspect_no python_installed && plan_add run_06_system_packages "Python runtime missing";
+ inspect_no python_installed && repair_python;
+ inspect_no venv_exists && plan_add run_07_python_environment "Python virtual environment missing";
+ inspect_no venv_exists && repair_virtual_environment;
+ inspect_remote bluetooth_ok bluetoothctl list;
+ inspect_remote internet ping -c1 8.8.8.8;
+ inspect_remote python_installed python3 --version;
+ inspect_remote venv_exists test -d /opt/tinqa/venv;
+ inspect_set bluetooth_ok yes;
+ inspect_set functional_tests no;
+ inspect_set functional_tests yes;
+ inspect_set internet yes;
+ inspect_set python_installed yes;
+ inspect_set reboot_required no;
+ inspect_set reboot_required yes;
+ inspect_set venv_exists no;
+ INSPECT_VALUES[$i]="${value}";
+ INSPECT_VALUES+=("${value}")
+ INSPECT_VALUES=()
+ install_required_packages;
+ install_requirements;
+ install_service;
+ is-active)
+ is-enabled)
+ list-unit-files)
+ list)
+ ln -sfn "${source}" "${destination}"
+ local available;
+ local backup="${ROLLBACK_DIRECTORY}/$(basename "${directory}")";
+ local backup="${ROLLBACK_DIRECTORY}/$(basename "${file}").bak";
+ local backup="$2";
+ local backup="$2";
+ local command_string="";
+ local count=1;
+ local count=1;
+ local destination_root="$2";
+ local destination="$2";
+ local destination="$2";
+ local destination="$2";
+ local destination="$2";
+ local destination="$2";
+ local destination="$2";
+ local destination="$2";
+ local destination="$2";
+ local dst="${@: -1}";
+ local dst="${@: -1}";
+ local duration;
+ local duration;
+ local elapsed=0;
+ local elapsed=0;
+ local elapsed=0;
+ local empty=$(( width - filled ));
+ local empty=0;
+ local end_time;
+ local entry;
+ local exit_code;
+ local expected="$2";
+ local failed=0;
+ local filled=$(( current * width / total ));
+ local filled=0;
+ local i;
+ local i;
+ local i;
+ local i=0;
+ local key;
+ local module_id;
+ local module="$3";
+ local number="$2";
+ local output_file;
+ local pattern;
+ local percent=0;
+ local rc=$?;
+ local reason;
+ local reason="${2:-}";
+ local retries="${3:-3}";
+ local running_file="${FAKE_PI_ROOT}/var/run/${service}.running";
+ local service_file="${FAKE_PI_ROOT}/etc/systemd/system/${service}.service";
+ local service="${1:-}";
+ local skip=0;
+ local spin='-\|/';
+ local src="${@: -2:1}";
+ local src="${@: -2:1}";
+ local start_time;
+ local step_id;
+ local target="$2";
+ local target="$2";
+ local timeout="${2:-20}";
+ local timeout="${2:-30}";
+ local timeout="${2:-30}";
+ local title="${3:-Progress}";
+ local total="$2";
+ local total="$2";
+ local total="$2";
+ local total="$2";
+ local validator="validate_${module#run_}";
+ local value="$2";
+ local value="$2";
+ local value="$2";
+ local venv="$3";
+ local width=40;
+ local width=40;
+ log_debug "${command_string}";
+ log_debug "Command :";
+ log_debug "Working Directory : $(pwd)";
+ log_error "${message}";
+ log_error "Application files missing.";
+ log_error "APT still failing.";
+ log_error "Bluetooth adapter is powered off.";
+ log_error "Bluetooth adapter not detected.";
+ log_error "Bluetooth repair failed.";
+ log_error "Bluetooth service failed to start.";
+ log_error "Bluetooth service is not running.";
+ log_error "Deployment Finished With Errors";
+ log_error "Failed";
+ log_error "Internet connectivity could not be restored.";
+ log_error "Maximum retry count reached.";
+ log_error "Missing : ${item}";
+ log_error "Python installation failed.";
+ log_error "Unable to create virtual environment.";
+ log_error "Unable to restore network.";
+ LOG_FILE="${DEPLOYMENT_LOG_DIRECTORY}/deployment_$(date +"%Y%m%d_%H%M%S").log";
+ LOG_FILE="${DEPLOYMENT_LOG_DIRECTORY}/deployment_$(date +%Y%m%d_%H%M%S).log";
+ log_info "${description}";
+ log_info "${step_id}";
+ log_info "Archive : ${ARCHIVE_FILE}";
+ log_info "Backup created: ${directory}"
+ log_info "Backup created: ${file}"
+ log_info "Checking internet connectivity...";
+ log_info "Cleaning package cache...";
+ log_info "Cleaning package cache...";
+ log_info "Comparing deployed project structure...";
+ log_info "Duration : $(_format_duration "${duration}")";
+ log_info "Duration : $(_format_duration "${duration}")";
+ log_info "Exit Code : ${exit_code}";
+ log_info "Installing Python...";
+ log_info "Removing unused packages...";
+ log_info "Repair : ${title}";
+ log_info "Repairing broken packages...";
+ log_info "Report : ${HEALTH_REPORT}"
+ log_info "Restarting NetworkManager...";
+ log_info "Retrying APT update...";
+ log_info "Rollback cache removed."
+ log_info "Size    : $(report_size)"
+ log_info "Updating package index...";
+ log_info "Upgrading operating system...";
+ log_line;
+ log_line;
+ log_line;
+ log_line;
+ log_line;
+ log_line;
+ log_line;
+ log_line;
+ log_section "${module_id} : ${CURRENT_MODULE}"
+ log_success "${title} repaired.";
+ log_success "Adapter is discoverable.";
+ log_success "Adapter is pairable.";
+ log_success "Application files present.";
+ log_success "APT repaired.";
+ log_success "APT working correctly.";
+ log_success "Bluetooth adapter detected.";
+ log_success "Bluetooth adapter is powered.";
+ log_success "Bluetooth configuration completed."
+ log_success "Bluetooth operational.";
+ log_success "Bluetooth repaired.";
+ log_success "Bluetooth service is running.";
+ log_success "Cleanup module completed."
+ log_success "Completed";
+ log_success "Deployment Completed Successfully";
+ log_success "Diagnostic bundle created.";
+ log_success "Disk space sufficient.";
+ log_success "File transfer completed."
+ log_success "Found : ${item}";
+ log_success "Functional tests completed."
+ log_success "Health report generated."
+ log_success "Health report generated.";
+ log_success "Internet connectivity available.";
+ log_success "Module Completed";
+ log_success "Network restored.";
+ log_success "Operating system update completed."
+ log_success "Permissions repaired.";
+ log_success "Python already installed.";
+ log_success "Python environment completed."
+ log_success "Python installed.";
+ log_success "Python package installation completed."
+ log_success "Restored: ${source}"
+ log_success "Rollback completed."
+ log_success "Self healing completed."
+ log_success "Service enabled."
+ log_success "Service logs collected."
+ log_success "Service started."
+ log_success "System information saved."
+ log_success "System package installation completed."
+ log_success "System validation completed."
+ log_success "Systemd configuration completed."
+ log_success "Systemd reloaded."
+ log_success "Systemd reloaded.";
+ log_success "TinQa service running.";
+ log_success "Virtual environment created.";
+ log_success "Virtual environment exists.";
+ log_warning "${title} repair unsuccessful.";
+ log_warning "Adapter is not discoverable.";
+ log_warning "Adapter is not pairable.";
+ log_warning "APT update failed.";
+ log_warning "Bluetooth requires repair.";
+ log_warning "Continuing deployment...";
+ log_warning "Internet unavailable.";
+ log_warning "Internet unavailable.";
+ log_warning "Low disk space detected.";
+ log_warning "Operating system reboot will be required.";
+ log_warning "Python not found.";
+ log_warning "Retry ${count}/${retries}";
+ log_warning "TinQa service not running.";
+ log_warning "Virtual environment missing.";
+ mkdir -p "$(dirname "${file}")";
+ mkdir -p "${DEPLOYMENT_LOG_DIRECTORY}";
+ mkdir -p "${destination}";
+ mkdir -p "${directory}"
+ mkdir -p "${FAKE_PI_ROOT}/var/run";
+ mkdir -p "${FAKE_PI_ROOT}/var/run";
+ mkdir -p "${ROLLBACK_DIRECTORY}";
+ mkdir -p "${ROLLBACK_DIRECTORY}";
+ mkdir -p "${venv}/bin";
+ MOCK_BLUETOOTH_DIR="${FAKE_PI_ROOT}/var/lib/bluetooth";
+ mock_failure "rsync failed";
+ mock_log "apt $*";
+ mock_log "bluetoothctl $*"
+ mock_log "python $*"
+ mock_log "rsync $*";
+ mock_log "systemctl $*";
+ mock_log "systemctl daemon-reload";
+ mock_log "systemctl disable ${service}.service";
+ mock_log "systemctl enable ${service}.service";
+ mock_log "systemctl restart ${service}.service";
+ mock_log "systemctl start ${service}.service";
+ mock_log "systemctl stop ${service}.service";
+ mock_success "apt-get $*"
+ mock_success "dpkg $*"
+ MOCK_SUDOERS_DIR="${FAKE_PI_ROOT}/etc/sudoers.d";
+ MOCK_SYSTEMD_DIR="${FAKE_PI_ROOT}/etc/systemd/system";
+ module_id="$(_next_module)";
+ MODULE_START_TIME=$(date +%s);
+ mv -f -- "${source}" "${destination}"
+ output_file=$(mktemp);
+ package_summary;
+ package_summary;
+ panic "Assertion Failed : $*";
+ percent=$(( current * 100 / total ));
+ pgrep -x "${process}"
+ pgrep -x "${process}" > /dev/null 2>&1
+ pkill -KILL -x "${process}" 2> /dev/null || true
+ pkill -TERM -x "${process}" 2> /dev/null || true
+ plan_add run_02_self_healing "Repair operating system if required";
+ plan_add run_02_self_healing;
+ plan_add run_03_os_update "Bring operating system to latest state";
+ plan_add run_03_os_update;
+ plan_add run_04_cleanup;
+ plan_add run_04_cleanup;
+ plan_add run_05_transfer;
+ plan_add run_05_transfer;
+ plan_add run_06_system_packages;
+ plan_add run_07_python_environment;
+ plan_add run_08_python_packages;
+ plan_add run_08_python_packages;
+ plan_add run_09_bluetooth;
+ plan_add run_10_system_validation "Final system verification";
+ plan_add run_10_system_validation;
+ plan_add run_11_systemd;
+ plan_add run_11_systemd;
+ plan_add run_12_functional_tests;
+ plan_add run_12_functional_tests;
+ plan_add run_13_health_report;
+ plan_add run_13_health_report;
+ plan_add run_14_finish;
+ plan_add run_14_finish;
+ plan_clear;
+ plan_print
+ plan_print;
+ power_adapter;
+ printf -v command_string "%q " "$@";
+ printf '  • %s\n' "${ERROR_MESSAGES[@]}";
+ printf '  • %s\n' "${WARNING_MESSAGES[@]}";
+ printf '%s\n' "${item}";
+ printf "[MOCK] %s\n" "$*"
+ printf "[MODULE %02d] %s\n" "${number}" "${name}";
+ printf "] %3d%% (%d/%d)" "${percent}" "${current}" "${total}";
+ printf "] %3d%%" $(( current * 100 / total ));
+ printf "\n";
+ printf "\n";
+ printf "\r"
+ printf "\r[";
+ printf "\r[%c] Working..." "${spin:i++%4:1}";
+ printf "\r%-20s [" "${title}";
+ printf "%-30s : %s\n" "${title}" "${value}"
+ printf "%-35s : %s\n" "$key" "${INSPECT[$key]}";
+ printf "%*s\n" $(( (${#text}+TERMINAL_WIDTH)/2 )) "${text}"
+ printf "%0.s-" $(seq 1 "${empty}");
+ printf "%0.s-" $(seq 1 "${empty}");
+ printf "%0.s#" $(seq 1 "${filled}");
+ printf "%0.s#" $(seq 1 "${filled}");
+ printf "%0.s${BOX_H}" $(seq 1 78);
+ printf "%0.s${BOX_H}" $(seq 1 78);
+ printf "%0.s${BOX_H}" $(seq 1 78);
+ printf "%2d. %-30s : %s\n" "$((i+1))" "${ACTIONS[$i]}" "${reason}";
+ printf "%2d. %s\n" "$((i+1))" "${ACTIONS[$i]}";
+ printf "%s.service enabled\n" "${service}";
+ printf "%s" "${BOX_L}";
+ printf "%s" "${BOX_TL}";
+ printf "%s\n" "${BOX_BR}"
+ printf "%s\n" "${BOX_R}"
+ printf "%s\n" "${BOX_TR}";
+ printf "${BOX_V} %-20s : %-53s ${BOX_V}\n" "${key}" "${value}"
+ printf "${BOX_V} %-76s ${BOX_V}\n" "${title}";
+ reason="${ACTION_REASONS[$i]:-}";
+ register_backup "${directory}" "${backup}";
+ register_backup "${file}" "${backup}";
+ reload_systemd;
+ remote_exec "$@";
+ remote_exec sudo apt clean || true;
+ remote_exec sudo apt clean || true;
+ remote_exec sudo apt install -y python3 python3-pip python3-venv;
+ remote_exec sudo chmod -R 755 /opt/tinqa || true;
+ remote_exec sudo chown -R tinqa:tinqa /opt/tinqa || true;
+ remote_exec sudo journalctl --vacuum-time=7d || true;
+ remote_exec sudo rm -rf /var/lib/apt/lists/* || true;
+ remote_exec sudo systemctl daemon-reload;
+ remote_exec sudo systemctl enable bluetooth || true;
+ remote_exec sudo systemctl restart bluetooth || true;
+ remote_exec sudo systemctl restart NetworkManager || true;
+ remote_exec sudo systemctl restart tinqa.service || true;
+ repair_execute "${module#run_}";
+ repair_execute "Application" repair_application
+ repair_execute "Bluetooth" repair_bluetooth;
+ repair_execute "Disk" repair_disk;
+ repair_execute "Network" repair_network;
+ repair_execute "Package Manager" repair_package_manager;
+ repair_execute "Package Manager" repair_package_manager;
+ repair_execute "Permissions" repair_permissions;
+ repair_execute "Python" repair_python;
+ repair_execute "Services" repair_services;
+ repair_execute "Systemd" repair_systemd;
+ repair_execute "Systemd" repair_systemd;
+ repair_execute "Systemd" repair_systemd;
+ repair_execute "Systemd" repair_systemd;
+ repair_execute "Virtual Environment" repair_virtual_environment;
+ report_header;
+ restart)
+ restore_item "${source}" "${backup}";
+ return "${exit_code}"
+ return "${failed}"
+ return "${result}"
+ return $?
+ return $?
+ return 0
+ return 0
+ return 0
+ return 0
+ return 0
+ return 0
+ return 0
+ return 0
+ return 0
+ return 0
+ return 0
+ return 0
+ return 0
+ return 0
+ return 0
+ return 0
+ return 0
+ return 0
+ return 0
+ return 0
+ return 0
+ return 0
+ return 0
+ return 0
+ return 0
+ return 0
+ return 0
+ return 0
+ return 0
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 0;
+ return 1
+ return 1
+ return 1
+ return 1
+ return 1
+ return 1
+ return 1
+ return 1
+ return 1
+ return 1
+ return 1
+ return 1
+ return 1
+ return 1
+ return 1
+ return 1
+ return 1
+ return 1
+ return 1
+ return 1
+ return 1
+ return 1;
+ return 1;
+ return 1;
+ return 1;
+ return 1;
+ return 1;
+ return 1;
+ return;
+ return;
+ rm -f "${FAKE_PI_ROOT}/var/run/${service}.running";
+ rm -f "${output_file}";
+ rm -f "${service_file}";
+ rm -rf -- "${target}"
+ rm -rf "${ROLLBACK_DIRECTORY}";
+ rm -rf "${source}";
+ rsync -az --delete -e "ssh ${SSH_OPTIONS[*]}" "${source}" "${SSH_USER}@${REMOTE_HOST}:${destination}"
+ rsync -az -e "ssh ${SSH_OPTIONS[*]}" "${SSH_USER}@${REMOTE_HOST}:${source}" "${destination}"
+ service_logs_header;
+ service="${service%.service}";
+ sha256sum "${file}" | awk '{print $1}'
+ shift
+ shift;
+ shift;
+ shift;
+ shift;
+ shift;
+ shift;
+ shift;
+ shift;
+ show_banner;
+ show_deployment_duration;
+ show_deployment_result;
+ show_finish_banner
+ show_python_version;
+ show_reboot_status;
+ show_report_locations;
+ show_transfer_statistics;
+ show)
+ skip=1;
+ sleep 0.1;
+ sleep 1;
+ sleep 1;
+ sleep 1;
+ sleep 2;
+ sleep 2;
+ sleep 2;
+ sleep 2;
+ sleep 3;
+ ssh "${SSH_OPTIONS[@]}" "${SSH_USER}@${REMOTE_HOST}" "$@"
+ start_bluetooth_service;
+ start_service;
+ start_time=$(date +%s);
+ start)
+ stat -c%s "${file}"
+ status)
+ step_id="$(_next_step)";
+ stop_application_service;
+ stop)
+ success_banner;
+ sudo systemctl daemon-reload;
+ sudo systemctl disable "${service}"
+ sudo systemctl enable "${TINQA_SERVICE_NAME}";
+ sudo systemctl restart "${service}"
+ sudo systemctl restart "${TINQA_SERVICE_NAME}";
+ sudo systemctl stop "${service}"
+ system_info_header;
+ system_summary;
+ systemctl is-active --quiet "${service}"
+ systemctl list-unit-files --type=service | awk '{print $1}' | grep -Fxq "${service}.service"
+ systemctl status "${TINQA_SERVICE_NAME}" --no-pager > "${APPLICATION_LOG_DIRECTORY}/systemd_status.log" 2>&1 || true;
+ tar -xJf "${archive}" -C "${destination}"
+ tar -xzf "${archive}" -C "${destination}"
+ target_exec "${PYTHON_BINARY}" -m venv "${VENV_DIRECTORY}";
+ target_exec sudo apt --fix-broken install -y;
+ target_exec sudo apt autoremove -y;
+ target_exec sudo apt clean;
+ target_exec sudo apt update;
+ target_exec sudo DEBIAN_FRONTEND=noninteractive apt full-upgrade -y;
+ test_bluetooth;
+ test_project_directory;
+ test_python_packages;
+ test_python;
+ test_services;
+ test_virtual_environment;
+ touch "${FAKE_PI_ROOT}/var/run/${service}.running";
+ touch "${FAKE_PI_ROOT}/var/run/${service}.running";
+ touch "${file}"
+ touch "${LOG_FILE}";
+ touch "${LOG_FILE}";
+ touch "${service_file}";
+ ui_blank;
+ ui_blank;
+ ui_blank;
+ ui_box_end
+ ui_center "   ╚═╝   ╚═╝╚═╝  ╚═══╝ ╚══▀▀═╝ ╚═╝  ╚═╝";
+ ui_center "   ██║   ██║██╔██╗ ██║██║   ██║███████║";
+ ui_center "   ██║   ██║██║ ╚████║╚██████╔╝██║  ██║";
+ ui_center "   ██║   ██║██║╚██╗██║██║▄▄ ██║██╔══██║";
+ ui_center "████████╗██╗███╗   ██╗ ██████╗  █████╗";
+ ui_center "╚══██╔══╝██║████╗  ██║██╔═══██╗██╔══██╗";
+ ui_center "✓ DEPLOYMENT COMPLETED SUCCESSFULLY";
+ ui_center "⚠ DEPLOYMENT COMPLETED WITH WARNINGS";
+ ui_center "✗ DEPLOYMENT FAILED";
+ ui_center "${title}";
+ ui_center "TinQa Deployment Framework";
+ ui_center "Version ${BANNER_VERSION}";
+ ui_line;
+ ui_line;
+ ui_line;
+ ui_line;
+ ui_line;
+ ui_line;
+ ui_line;
+ ui_line;
+ ui_property "Architecture" "$(uname -m)";
+ ui_property "Hostname" "$(hostname)";
+ ui_property "Kernel" "$(uname -r)";
+ ui_property "Python" "$(python3 --version 2> /dev/null)";
+ ui_property "User" "$(whoami)";
+ ui_property "Working Dir" "$(pwd)";
+ ui_thin_line;
+ ui_thin_line;
+ ui_thin_line;
+ until download "${url}" "${destination}"; do
+ unzip -oq "${archive}" -d "${destination}"
+ update_package_repository;
+ upgrade_pip;
+ upgrade_system_packages;
+ validate_adapter_power || result=1;
+ validate_application_entry;
+ validate_application_import;
+ validate_bluetooth_adapter || result=1;
+ validate_bluetooth_runtime;
+ validate_bluetooth_service || result=1;
+ validate_configuration;
+ validate_discoverable || true;
+ validate_pairable || true;
+ validate_project_structure;
+ validate_python_dependencies;
+ validate_python_runtime;
+ validate_source_directory;
+ validate_template;
+ verify_python_packages;
+ verify_python;
+ verify_required_packages;
+ verify_service;
+ verify_transfer;
+ verify_virtual_environment;
+ wait_for_adapter;
+ warning_banner;
+ WARNING_MESSAGES+=("${message}");
+ wget -q "${url}" -O "${destination}";
+ while (( elapsed < timeout )); do
+ while (( elapsed < timeout )); do
+ while (( elapsed < timeout )); do
+ while [[ "${1:-}" == -* ]]; do
+ while [[ "$1" == -* ]]; do
+ while IFS= read -r item; do
+ while IFS= read -r line; do
+ while kill -0 "${pid}" 2> /dev/null; do
+ while true; do
+__CF_USER_TEXT_ENCODING=0x1F5:0x0:0x0
+__CFBundleIdentifier=com.microsoft.VSCode
+_=/usr/bin/env
+[    0.000000] Linux version 6.6.20-v8+
+[    1.000000] Bluetooth: Core ver 2.22
+[    2.000000] Bluetooth: HCI device initialized
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+/dev/root          30000 5000     25000  17% /
+#!/usr/bin/env bash
+#!/usr/bin/env bash
+#!/usr/bin/env bash
+===============================================================================
+===============================================================================
+2: eth0: <UP>
+APPLICATION_DESCRIPTION=Bluetooth AI Assistant
+APPLICATION_ENTRY_FILE=app/main.py
+APPLICATION_ENTRY_MODULE=app.main
+APPLICATION_LOG_DIRECTORY=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/application
+APPLICATION_NAME=TinQa
+APPLICATION_PROCESS_NAME=app.main
+APPLICATION_VERSION=1.0.0
+BACKUP_DIRECTORY=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/backup
+BANNER_VERSION=1.0.0
+BASH_FUNC_apt-cache%%=() {  mock_success "apt-cache $*"
+BASH_FUNC_apt-get%%=() {  [[ "${MOCK_APT_FAIL:-0}" == "1" ]] && mock_failure "apt-get failed";
+BASH_FUNC_apt%%=() {  if [[ "${1:-}" == "--version" ]]; then
+BASH_FUNC_assert%%=() {  "$@";
+BASH_FUNC_backup_directory%%=() {  local directory="$1";
+BASH_FUNC_backup_file%%=() {  local file="$1";
+BASH_FUNC_bluetoothctl%%=() {  case "${1:-}" in 
+BASH_FUNC_chmod%%=() {  mock_log "chmod $*";
+BASH_FUNC_chown%%=() {  mock_log "chown $*";
+BASH_FUNC_cleanup_directory%%=() {  local directory="$1";
+BASH_FUNC_cleanup_report%%=() {  rm -rf "${REPORT_DIRECTORY}"
+BASH_FUNC_cleanup_rollback%%=() {  [[ -d "${ROLLBACK_DIRECTORY}" ]] || return 0;
+BASH_FUNC_cleanup_temp_files%%=() {  find /tmp -maxdepth 1 -user "$(whoami)" -name "tmp.*" -mtime +1 -delete 2> /dev/null || true
+BASH_FUNC_collect_service_logs%%=() {  log_info "Collecting service logs...";
+BASH_FUNC_collect_system_information%%=() {  log_info "Collecting system information...";
+BASH_FUNC_command_exists%%=() {  command -v "$1" > /dev/null 2>&1
+BASH_FUNC_compare_project_structure%%=() {  local source_root="$1";
+BASH_FUNC_cp%%=() {  mock_log "cp $*";
+BASH_FUNC_create_dir%%=() {  local directory="$1";
+BASH_FUNC_create_file%%=() {  local file="$1";
+BASH_FUNC_create_symlink%%=() {  local source="$1";
+BASH_FUNC_create_temp_directory%%=() {  mktemp -d
+BASH_FUNC_create_temp_file%%=() {  mktemp
+BASH_FUNC_deployment_finished%%=() {  clear;
+BASH_FUNC_deployment_summary%%=() {  append "================ Deployment Summary ================";
+BASH_FUNC_df%%=() {  cat <<EOF
+BASH_FUNC_directory_exists%%=() {  [[ -d "$1" ]]
+BASH_FUNC_directory_size%%=() {  local directory="$1";
+BASH_FUNC_disable_service%%=() {  local service="$1";
+BASH_FUNC_dmesg%%=() {  cat <<EOF
+BASH_FUNC_download_with_retry%%=() {  local url="$1";
+BASH_FUNC_download%%=() {  local url="$1";
+BASH_FUNC_dpkg%%=() {  if [[ "$1" == "-s" ]]; then
+BASH_FUNC_draw_progress%%=() {  local current="$1";
+BASH_FUNC_enable_service%%=() {  log_info "Enabling TinQa service...";
+BASH_FUNC_error_banner%%=() {  echo;
+BASH_FUNC_extract_archive%%=() {  local archive="$1";
+BASH_FUNC_file_exists%%=() {  [[ -f "$1" ]]
+BASH_FUNC_file_size%%=() {  local file="$1";
+BASH_FUNC_finish_logger%%=() {  _print_summary;
+BASH_FUNC_force_kill_process%%=() {  local process="$1";
+BASH_FUNC_free%%=() {  cat <<EOF
+BASH_FUNC_functional_tests_execute%%=() {  FUNCTIONAL_RESULTS=();
+BASH_FUNC_generate_report%%=() {  log_info "Generating diagnostic report...";
+BASH_FUNC_git%%=() {  mock_log "git $*";
+BASH_FUNC_goodbye%%=() {  cat <<EOF
+BASH_FUNC_health_report_execute%%=() {  health_report_initialize;
+BASH_FUNC_hostname%%=() {  case "${1:-}" in 
+BASH_FUNC_init_logger%%=() {  DEPLOYMENT_START_TIME=$(date +%s);
+BASH_FUNC_initialize_configuration%%=() {  validate_configuration;
+BASH_FUNC_initialize_logger%%=() {  mkdir -p "${DEPLOYMENT_LOG_DIRECTORY}";
+BASH_FUNC_inspect_clear%%=() {  INSPECT_KEYS=();
+BASH_FUNC_inspect_dump%%=() {  echo;
+BASH_FUNC_inspect_get%%=() {  local key="$1";
+BASH_FUNC_inspect_no%%=() {  [[ "$(inspect_get "$1")" == "no" ]]
+BASH_FUNC_inspect_set%%=() {  local key="$1";
+BASH_FUNC_inspect_yes%%=() {  [[ "$(inspect_get "$1")" == "yes" ]]
+BASH_FUNC_ip%%=() {  cat <<EOF
+BASH_FUNC_is_linux%%=() {  [[ "${OS_NAME}" == "Linux" ]]
+BASH_FUNC_is_macos%%=() {  [[ "${OS_NAME}" == "Darwin" ]]
+BASH_FUNC_is_pi%%=() {  [[ -f /proc/device-tree/model ]] || return 1;
+BASH_FUNC_journalctl%%=() {  local log="${FAKE_PI_ROOT}/var/log/tinqa.log";
+BASH_FUNC_kill_process%%=() {  local process="$1";
+BASH_FUNC_list_modules%%=() {  printf "%s\n" "${MODULES[@]}"
+BASH_FUNC_log_debug%%=() {  local message="$1";
+BASH_FUNC_log_error%%=() {  local message="$1";
+BASH_FUNC_log_info%%=() {  local message="$1";
+BASH_FUNC_log_success%%=() {  local message="$1";
+BASH_FUNC_log_warning%%=() {  local message="$1";
+BASH_FUNC_lsblk%%=() {  cat <<EOF
+BASH_FUNC_mock_failure%%=() {  mock_log "$*";
+BASH_FUNC_mock_initialize%%=() {  : "${FAKE_PI_ROOT:?FAKE_PI_ROOT not set}";
+BASH_FUNC_mock_log%%=() {  [[ "${MOCK_VERBOSE}" == "1" ]] || return 0;
+BASH_FUNC_mock_success%%=() {  mock_log "$*";
+BASH_FUNC_module_banner%%=() {  local name="$1";
+BASH_FUNC_module_begin%%=() {  CURRENT_MODULE="$1";
+BASH_FUNC_module_count%%=() {  echo "${#MODULES[@]}"
+BASH_FUNC_module_end%%=() {  local end_time;
+BASH_FUNC_module_progress%%=() {  local current="$1";
+BASH_FUNC_panic%%=() {  local message="$1";
+BASH_FUNC_perform_rollback%%=() {  log_warning "Rollback started.";
+BASH_FUNC_pgrep%%=() {  mock_log "pgrep $*";
+BASH_FUNC_ping%%=() {  mock_log "ping $*";
+BASH_FUNC_pip%%=() {  mock_log "pip $*";
+BASH_FUNC_pip3%%=() {  mock_log "pip3 $*";
+BASH_FUNC_plan_add%%=() {  local action="$1";
+BASH_FUNC_plan_clear%%=() {  ACTIONS=();
+BASH_FUNC_plan_has%%=() {  local action;
+BASH_FUNC_plan_print%%=() {  echo;
+BASH_FUNC_plan_reason%%=() {  local index="$1";
+BASH_FUNC_process_pid%%=() {  local process="$1";
+BASH_FUNC_process_running%%=() {  local process="$1";
+BASH_FUNC_progress%%=() {  local current="$1";
+BASH_FUNC_python%%=() {  if [[ "${1:-}" == "--version" ]]; then
+BASH_FUNC_python3%%=() {  mock_log "python3 $*";
+BASH_FUNC_register_backup%%=() {  local source="$1";
+BASH_FUNC_register_module%%=() {  MODULES+=("$1")
+BASH_FUNC_reload_systemd%%=() {  log_info "Reloading systemd...";
+BASH_FUNC_remote_copy%%=() {  local source="$1";
+BASH_FUNC_remote_create_venv%%=() {  remote_exec python3 -m venv "$1"
+BASH_FUNC_remote_exec%%=() {  [[ -n "${REMOTE_HOST}" ]] || { 
+BASH_FUNC_remote_exists%%=() {  remote_exec test -e "$1"
+BASH_FUNC_remote_fetch%%=() {  local source="$1";
+BASH_FUNC_remote_install_packages%%=() {  remote_exec sudo apt install -y "$@"
+BASH_FUNC_remote_mkdir%%=() {  remote_exec mkdir -p "$1"
+BASH_FUNC_remote_reboot%%=() {  remote_exec sudo reboot
+BASH_FUNC_remote_service_enable%%=() {  remote_exec sudo systemctl enable "$1"
+BASH_FUNC_remote_service_restart%%=() {  remote_exec sudo systemctl restart "$1"
+BASH_FUNC_remote_service_status%%=() {  remote_exec systemctl status "$1" --no-pager
+BASH_FUNC_remote_set_host%%=() {  REMOTE_HOST="$1"
+BASH_FUNC_remote_update%%=() {  remote_exec sudo apt update
+BASH_FUNC_remote_upgrade%%=() {  remote_exec sudo apt full-upgrade -y
+BASH_FUNC_repair_application%%=() {  log_info "Checking TinQa installation...";
+BASH_FUNC_repair_bluetooth%%=() {  log_info "Checking Bluetooth service...";
+BASH_FUNC_repair_disk%%=() {  log_info "Checking available disk space...";
+BASH_FUNC_repair_everything%%=() {  repair_execute "Network" repair_network;
+BASH_FUNC_repair_execute%%=() {  local title="$1";
+BASH_FUNC_repair_network%%=() {  log_info "Verifying network connectivity...";
+BASH_FUNC_repair_package_manager%%=() {  log_info "Checking APT...";
+BASH_FUNC_repair_permissions%%=() {  log_info "Repairing ownership...";
+BASH_FUNC_repair_python%%=() {  log_info "Checking Python installation...";
+BASH_FUNC_repair_services%%=() {  log_info "Restarting TinQa service...";
+BASH_FUNC_repair_systemd%%=() {  log_info "Reloading systemd...";
+BASH_FUNC_repair_virtual_environment%%=() {  log_info "Checking virtual environment...";
+BASH_FUNC_require_command%%=() {  local cmd="$1";
+BASH_FUNC_require_network%%=() {  ping -c 1 8.8.8.8 > /dev/null 2>&1
+BASH_FUNC_require_root%%=() {  [[ "$(id -u)" -eq 0 ]]
+BASH_FUNC_restart_service%%=() {  local service="$1";
+BASH_FUNC_restore_item%%=() {  local source="$1";
+BASH_FUNC_retry%%=() {  local retries="$1";
+BASH_FUNC_rollback_summary%%=() {  echo;
+BASH_FUNC_rsync%%=() {  [[ "${MOCK_RSYNC_FAIL:-0}" == "1" ]] && { 
+BASH_FUNC_run_00_preflight%%=() {  echo;
+BASH_FUNC_run_01_build_plan%%=() {  section "Module 01 - Build Plan";
+BASH_FUNC_run_02_self_healing%%=() {  section "Module 02 - Self Healing";
+BASH_FUNC_run_03_os_update%%=() {  section "Module 03 - Operating System Update";
+BASH_FUNC_run_04_cleanup%%=() {  section "Module 04 - Cleanup";
+BASH_FUNC_run_05_transfer%%=() {  section "Module 05 - File Transfer";
+BASH_FUNC_run_06_system_packages%%=() {  section "Module 06 - System Packages";
+BASH_FUNC_run_07_python_environment%%=() {  section "Module 07 - Python Environment";
+BASH_FUNC_run_08_python_packages%%=() {  section "Module 08 - Python Packages";
+BASH_FUNC_run_09_bluetooth%%=() {  section "Module 09 - Bluetooth";
+BASH_FUNC_run_10_system_validation%%=() {  section "Module 10 - System Validation";
+BASH_FUNC_run_11_systemd%%=() {  section "Module 11 - Systemd";
+BASH_FUNC_run_12_functional_tests%%=() {  section "Module 12 - Functional Tests";
+BASH_FUNC_run_13_health_report%%=() {  section "Module 13 - Health Report";
+BASH_FUNC_run_14_finish%%=() {  section "Module 14 - Finish";
+BASH_FUNC_run_module%%=() {  local module="$1";
+BASH_FUNC_run_optional%%=() {  if ! run "$@"; then
+BASH_FUNC_run%%=() {  local description="$1";
+BASH_FUNC_safe_chmod%%=() {  local permission="$1";
+BASH_FUNC_safe_chown%%=() {  local owner="$1";
+BASH_FUNC_safe_cp%%=() {  local source="$1";
+BASH_FUNC_safe_mv%%=() {  local source="$1";
+BASH_FUNC_safe_rm%%=() {  local target="$1";
+BASH_FUNC_scan_project_structure%%=() {  local root="$1";
+BASH_FUNC_scp%%=() {  mock_log "scp $*";
+BASH_FUNC_section%%=() {  local title="$1";
+BASH_FUNC_service_exists%%=() {  local service="$1";
+BASH_FUNC_service_running%%=() {  local service="$1";
+BASH_FUNC_service%%=() {  mock_log "service $*";
+BASH_FUNC_sha256%%=() {  local file="$1";
+BASH_FUNC_show_banner%%=() {  clear;
+BASH_FUNC_spinner%%=() {  local pid="$1";
+BASH_FUNC_ssh%%=() {  mock_log "ssh $*";
+BASH_FUNC_sshpass%%=() {  shift;
+BASH_FUNC_start_service%%=() {  log_info "Starting TinQa service...";
+BASH_FUNC_status_box%%=() {  local title="$1";
+BASH_FUNC_step_progress%%=() {  local current="$1";
+BASH_FUNC_stop_service%%=() {  local service="$1";
+BASH_FUNC_success_banner%%=() {  echo;
+BASH_FUNC_sudo%%=() {  while [[ "$1" == *=* ]]; do
+BASH_FUNC_system_summary%%=() {  ui_box "System Information";
+BASH_FUNC_systemctl%%=() {  local command="${1:-}";
+BASH_FUNC_target_exec%%=() {  if [[ "${DEPLOY_MODE}" == "TEST" ]]; then
+BASH_FUNC_timedatectl%%=() {  cat <<EOF
+BASH_FUNC_ui_blank%%=() {  echo
+BASH_FUNC_ui_box_end%%=() {  printf "%s" "${BOX_BL}";
+BASH_FUNC_ui_box%%=() {  local title="$1";
+BASH_FUNC_ui_center%%=() {  local text="$1";
+BASH_FUNC_ui_line%%=() {  printf "%*s\n" "${TERMINAL_WIDTH}" "" | tr ' ' '='
+BASH_FUNC_ui_property%%=() {  local key="$1";
+BASH_FUNC_ui_thin_line%%=() {  printf "%*s\n" "${TERMINAL_WIDTH}" "" | tr ' ' '-'
+BASH_FUNC_uname%%=() {  case "${1:-}" in 
+BASH_FUNC_validate_adapter_power%%=() {  log_info "Checking adapter power...";
+BASH_FUNC_validate_bluetooth_adapter%%=() {  log_info "Checking Bluetooth adapter...";
+BASH_FUNC_validate_bluetooth_service%%=() {  log_info "Checking Bluetooth service...";
+BASH_FUNC_validate_bluetooth%%=() {  local result=0;
+BASH_FUNC_validate_discoverable%%=() {  log_info "Checking discoverable mode...";
+BASH_FUNC_validate_pairable%%=() {  log_info "Checking pairable mode...";
+BASH_FUNC_verify_sha256%%=() {  local file="$1";
+BASH_FUNC_wait_for_process_exit%%=() {  local process="$1";
+BASH_FUNC_wait_for_service_stop%%=() {  local service="$1";
+BASH_FUNC_wait_for_service%%=() {  local service="$1";
+BASH_FUNC_warning_banner%%=() {  echo;
+BLUETOOTH_ADAPTER=hci0
+BLUETOOTH_CACHE_DIRECTORY=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/var/lib/bluetooth/*/cache
+BLUETOOTH_SERVICE_NAME=bluetooth
+COLORTERM=truecolor
+COMMAND_MODE=unix2003
+Controller 00:11:22:33:44:55
+Controller 00:11:22:33:44:55 hci0 [default]
+deactivate() { :; }
+DEBIAN_FRONTEND=noninteractive
+DEBUG_MODE=0
+DEFAULT_GROUP=pi
+DEFAULT_USER=pi
+DEPLOY_MODE=TEST
+DEPLOYMENT_DIAGNOSTICS_DIRECTORY=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/var/log/tinqa-deploy/diagnostics
+DEPLOYMENT_LOG_DIRECTORY=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/var/log/tinqa-deploy
+DEPLOYMENT_MODE=production
+DEPLOYMENT_REPORT_DIRECTORY=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/var/log/tinqa-deploy/reports
+DEPLOYMENT_REPORT=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/deployment_report.txt
+DEPLOYMENT_ROLLBACK_DIRECTORY=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/var/log/tinqa-deploy/rollback
+DEPLOYMENT_START_EPOCH=1784822926
+DEPLOYMENT_START_TIME=Thu Jul 23 21:38:46 IST 2026
+DIAGNOSTIC_LOG_DIRECTORY=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics
+Discoverable: yes
+DOWNLOAD_DIRECTORY=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/temp/downloads
+echo "[MOCK] pip $*"
+echo "[MOCK] python $*"
+ENABLE_COLORS=true
+ENABLE_DIAGNOSTICS=true
+ENABLE_HEALTHCHECK=true
+ENABLE_PROGRESS_BAR=true
+ENABLE_ROLLBACK=true
+EOF
+EOF
+EOF
+EOF
+EOF
+EOF
+EOF
+EOF
+EOF
+EOF
+EOF
+EOF
+EOF
+EOF
+exit 0
+exit 0
+EXIT_ON_ERROR=true
+export PATH="${venv}/bin:\$PATH"
+export VIRTUAL_ENV="${venv}"
+EXTRACT_DIRECTORY=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/temp/extract
+FAKE_PI_ROOT=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox
+Filesystem     1M-blocks Used Available Use% Mounted on
+GIT_ASKPASS=/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass.sh
+HOME_DIRECTORY=/home/pi
+HOME=/Users/gaurav
+LANG=en_US.UTF-8
+Local time: Mon Jul 06 12:00:00 IST
+LOCK_FILE=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/deploy.lock
+LOG_DIRECTORY=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs
+LOG_FILE=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/var/log/tinqa-deploy/deployment_20260723_213846.log
+LOG_TIMESTAMP=true
+LOG_TO_CONSOLE=true
+LOG_TO_FILE=true
+LOGNAME=gaurav
+MallocNanoZone=0
+Mem:        4048576     1200000     2848576
+mmcblk0    29.7G disk
+└─mmcblk0p2 29.2G part /
+NAME        SIZE TYPE MOUNTPOINT
+NETWORK_MANAGER_SERVICE_NAME=NetworkManager
+NETWORK_TEST_HOST=8.8.8.8
+NMCLI_SUDOERS_FILE=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/etc/sudoers.d/tinqa_nmcli
+NMCLI_SUDOERS_RULE=pi ALL=(ALL) NOPASSWD: /usr/bin/nmcli
+NTP service: active
+OLDPWD=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework
+OSLogRateLimit=64
+Pairable: yes
+PATH=/opt/homebrew/bin:/opt/homebrew/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/opt/homebrew/bin
+PID_FILE=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/tinqa.pid
+PIP_BINARY=pip
+Powered: yes
+PROJECT_DEPLOY_ROOT=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa
+PROJECT_DIRECTORY_NAME=TinQa_Weather_Sync_System
+PROJECT_FOLDER=TinQa_Weather_Sync_System
+PROJECT_NAME=TinQa Weather Sync System
+PROJECT_ROOT=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa
+PROJECT_SOURCE_ROOT=/Users/gaurav/Desktop/TinQa/TinQa_Weather_Sync_System
+PS1=(venv) 
+PWD=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa
+PYTHON_BINARY=python3
+REQUIREMENTS_FILE=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/requirements.txt
+ROLLBACK_DIRECTORY=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/backup/rollback
+ROLLBACK_ON_FAILURE=true
+RTC in local TZ: no
+RTC time: Mon Jul 06 06:30:00
+SANDBOX_ROOT=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox
+SAVE_DEPLOYMENT_REPORT=true
+SAVE_SERVICE_LOGS=true
+SAVE_SYSTEM_INFO=true
+SERVICE_BACKUP_DIRECTORY=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/backup/systemd
+SERVICE_HEALTH_DELAY=2
+SERVICE_HEALTH_RETRIES=5
+SERVICE_STARTUP_TIMEOUT=15
+SHELL=/usr/bin/env bash
+SHLVL=2
+SHOW_BANNER=true
+SSH_AUTH_SOCK=/var/run/com.apple.launchd.FxpYLJokxm/Listeners
+STATUS_FILE=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/deploy.status
+STRICT_VALIDATION=true
+SUDOERS_DIRECTORY=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/etc/sudoers.d
+System clock synchronized: yes
+SYSTEMD_DIRECTORY=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/etc/systemd/system
+SYSTEMD_FILE=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/etc/systemd/system/tinqa.service
+SYSTEMD_REQUIRED=true
+SYSTEMD_RESTART_DELAY=5
+SYSTEMD_RESTART_POLICY=always
+SYSTEMD_SERVICE_FILE=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/etc/systemd/system/tinqa.service
+SYSTEMD_SERVICE_PATH=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/etc/systemd/system/tinqa.service
+SYSTEMD_SERVICE=tinqa.service
+SYSTEMD_TIMEOUT_START=30
+SYSTEMD_TIMEOUT_STOP=30
+SYSTEMD_WANTED_BY=multi-user.target
+TEMP_DIRECTORY=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/temp
+TERM_PROGRAM_VERSION=1.129.1
+TERM_PROGRAM=vscode
+TERM=xterm-256color
+TEST_ROOT=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests
+Time zone: Asia/Kolkata
+TINQA_LAUNCHER=1
+TINQA_SERVICE_FILE=tinqa.service
+TINQA_SERVICE_NAME=tinqa
+TMPDIR=/var/folders/n4/4sj1y2v94dl70b1pbg7312vr0000gn/T/
+Universal time: Mon Jul 06 06:30:00 UTC
+USER=gaurav
+VENV_DIRECTORY=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/venv
+VENV_NAME=venv
+VENV_PATH=/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/venv
+VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+VSCODE_GIT_ASKPASS_MAIN=/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass-main.js
+VSCODE_GIT_ASKPASS_NODE=/Applications/Visual Studio Code.app/Contents/Frameworks/Code Helper (Plugin).app/Contents/MacOS/Code Helper (Plugin)
+VSCODE_GIT_IPC_HANDLE=/var/folders/n4/4sj1y2v94dl70b1pbg7312vr0000gn/T/vscode-git-abcac39d48.sock
+VSCODE_PYTHON_AUTOACTIVATE_GUARD=1
+XPC_FLAGS=0x0
+XPC_SERVICE_NAME=0

@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
+set -Eeuo pipefail
 
-set -e
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-NEW_BASH="$(brew --prefix)/bin/bash"
+export TINQA_LAUNCHER=1
+export DEPLOY_MODE=TEST
 
-exec "$NEW_BASH" deploy/tests/run_deploy.sh "$@"
+exec "${ROOT_DIR}/deploy/deploy.sh" "$@"

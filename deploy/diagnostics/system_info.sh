@@ -78,8 +78,15 @@ collect_host_information() {
 
     append "Architecture  : $(uname -m)"
 
-    append "OS            : $(grep PRETTY_NAME /etc/os-release | cut -d= -f2 | tr -d '"')"
+    local os_info
+    if os_info=$(target_exec cat /etc/os-release 2>/dev/null); then
+        os_info=$(echo "${os_info}" | grep PRETTY_NAME | cut -d= -f2 | tr -d '"')
+    else
+        os_info="$(uname -s) $(uname -r)"
+    fi
 
+    append "OS            : ${os_info}"
+    
     append ""
 
 }

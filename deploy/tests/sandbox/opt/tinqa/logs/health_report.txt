@@ -1,0 +1,108 @@
+========================================================================
+TinQa Deployment Health Report
+Generated : Thu Jul 23 21:38:50 IST 2026
+========================================================================
+
+SYSTEM INFORMATION
+
+Hostname : REMOTE_HOST not configured.
+[31m[FAIL][0m Deployment failed.
+[31m[FAIL][0m Line : 77
+[31m[FAIL][0m Exit : 1
+[34m[INFO][0m Collecting system information...
+[32m[ OK ][0m System information saved.
+[34m[INFO][0m Collecting service logs...
+[32m[ OK ][0m Service logs collected.
+[34m[INFO][0m Generating diagnostic report...
+[32m[ OK ][0m Diagnostic bundle created.
+[34m[INFO][0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260723_213846.tar.gz
+[34m[INFO][0m Size    :  36K
+[33m[WARN][0m Rollback skipped (TEST MODE).
+Kernel   : REMOTE_HOST not configured.
+[31m[FAIL][0m Deployment failed.
+[31m[FAIL][0m Line : 78
+[31m[FAIL][0m Exit : 1
+[34m[INFO][0m Collecting system information...
+[32m[ OK ][0m System information saved.
+[34m[INFO][0m Collecting service logs...
+[32m[ OK ][0m Service logs collected.
+[34m[INFO][0m Generating diagnostic report...
+[32m[ OK ][0m Diagnostic bundle created.
+[34m[INFO][0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260723_213846.tar.gz
+[34m[INFO][0m Size    :  36K
+[33m[WARN][0m Rollback skipped (TEST MODE).
+CPU      : REMOTE_HOST not configured.
+[31m[FAIL][0m Deployment failed.
+[31m[FAIL][0m Line : 79
+[31m[FAIL][0m Exit : 1
+[34m[INFO][0m Collecting system information...
+[32m[ OK ][0m System information saved.
+[34m[INFO][0m Collecting service logs...
+[32m[ OK ][0m Service logs collected.
+[34m[INFO][0m Generating diagnostic report...
+[32m[ OK ][0m Diagnostic bundle created.
+[34m[INFO][0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260723_213846.tar.gz
+[34m[INFO][0m Size    :  36K
+[33m[WARN][0m Rollback skipped (TEST MODE).
+Python   : REMOTE_HOST not configured.
+[31m[FAIL][0m Deployment failed.
+[31m[FAIL][0m Line : 80
+[31m[FAIL][0m Exit : 1
+[34m[INFO][0m Collecting system information...
+[32m[ OK ][0m System information saved.
+[34m[INFO][0m Collecting service logs...
+[32m[ OK ][0m Service logs collected.
+[34m[INFO][0m Generating diagnostic report...
+[32m[ OK ][0m Diagnostic bundle created.
+[34m[INFO][0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260723_213846.tar.gz
+[34m[INFO][0m Size    :  36K
+[33m[WARN][0m Rollback skipped (TEST MODE).
+
+DISK
+Filesystem     1M-blocks Used Available Use% Mounted on
+/dev/root          30000 5000     25000  17% /
+
+MEMORY
+              total        used        free
+Mem:        4048576     1200000     2848576
+
+BLUETOOTH
+Controller 00:11:22:33:44:55 hci0 [default]
+
+SERVICES
+
+EXECUTED MODULES
+ - run_02_self_healing
+ - run_03_os_update
+ - run_04_cleanup
+ - run_05_transfer
+ - run_06_system_packages
+ - run_07_python_environment
+ - run_08_python_packages
+ - run_09_bluetooth
+ - run_10_system_validation
+ - run_11_systemd
+ - run_12_functional_tests
+ - run_13_health_report
+ - run_14_finish
+
+
+DEPLOYMENT HEALTH
+
+Project Structure                   : yes
+Python Runtime                      : yes
+Virtual Environment                 : yes
+Python Packages                     : yes
+Dependencies                        : yes
+Application Entry                   : yes
+Application Import                  : yes
+Bluetooth                           : yes
+Systemd                             : yes
+Functional Tests                    : no
+
+REBOOT
+Required : NO
+
+========================================================================
+Deployment completed successfully.
+========================================================================

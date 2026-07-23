@@ -184,7 +184,12 @@ systemctl() {
 
         is-active)
 
+            echo "DEBUG: service=${service}"
+            echo "DEBUG: checking ${FAKE_PI_ROOT}/var/run/${service}.running"
+
             [[ -f "${FAKE_PI_ROOT}/var/run/${service}.running" ]]
+
+            echo "DEBUG: result=$?"
 
             return $?
             ;;

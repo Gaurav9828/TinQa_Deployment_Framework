@@ -1,0 +1,538 @@
+\033[33m[WARN]\033[0m Running in TEST MODE
+\033[34m[INFO]\033[0m Sandbox : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox
+\033[34m[INFO]\033[0m Executing run_02_self_healing
+\033[34m[INFO]\033[0m Checking virtual environment...
+\033[32m[ OK ]\033[0m Virtual environment exists.
+\033[32m[ OK ]\033[0m Self healing completed.
+\033[32m[ OK ]\033[0m Completed run_02_self_healing
+\033[34m[INFO]\033[0m Executing run_03_os_update
+\033[34m[INFO]\033[0m Checking internet connectivity...
+\033[34m[INFO]\033[0m Updating package index...
+\033[34m[INFO]\033[0m Upgrading operating system...
+\033[34m[INFO]\033[0m Repairing broken packages...
+\033[34m[INFO]\033[0m Removing unused packages...
+\033[34m[INFO]\033[0m Cleaning package cache...
+\033[32m[ OK ]\033[0m Operating system update completed.
+\033[32m[ OK ]\033[0m Completed run_03_os_update
+\033[34m[INFO]\033[0m Executing run_04_cleanup
+\033[34m[INFO]\033[0m Stopping application service...
+\033[32m[ OK ]\033[0m Application service stopped.
+\033[34m[INFO]\033[0m Cleaning temporary directory...
+\033[32m[ OK ]\033[0m Temporary directory cleaned.
+\033[34m[INFO]\033[0m Removing runtime files...
+\033[32m[ OK ]\033[0m Runtime files removed.
+\033[34m[INFO]\033[0m Removing previous deployment...
+\033[32m[ OK ]\033[0m Previous deployment removed.
+\033[34m[INFO]\033[0m Cleaning previous deployment logs...
+\033[32m[ OK ]\033[0m Old logs cleaned.
+\033[34m[INFO]\033[0m Creating required directories...
+\033[32m[ OK ]\033[0m Required directories verified.
+\033[34m[INFO]\033[0m Checking available disk space...
+\033[32m[ OK ]\033[0m Disk space OK (32768 MB available).
+\033[32m[ OK ]\033[0m Cleanup module completed.
+\033[32m[ OK ]\033[0m Completed run_04_cleanup
+\033[34m[INFO]\033[0m Executing run_05_transfer
+\033[34m[INFO]\033[0m Validating project source...
+\033[34m[INFO]\033[0m Source : /Users/gaurav/Desktop/TinQa/TinQa_Weather_Sync_System
+\033[32m[ OK ]\033[0m Source directory verified.
+\033[34m[INFO]\033[0m Preparing deployment directory...
+\033[32m[ OK ]\033[0m Deployment directory ready.
+\033[34m[INFO]\033[0m Copying project files...
+\033[32m[ OK ]\033[0m Project files copied.
+\033[34m[INFO]\033[0m Verifying deployment...
+\033[34m[INFO]\033[0m Comparing deployed project structure...
+\033[32m[ OK ]\033[0m Found : .
+\033[32m[ OK ]\033[0m Found : app
+\033[32m[ OK ]\033[0m Found : app/api
+\033[32m[ OK ]\033[0m Found : app/api/routes
+\033[32m[ OK ]\033[0m Found : app/api/routes/ble_routes.py
+\033[32m[ OK ]\033[0m Found : app/api/routes/health_routes.py
+\033[32m[ OK ]\033[0m Found : app/api/routes/led_routes.py
+\033[32m[ OK ]\033[0m Found : app/api/routes/wifi_routes.py
+\033[32m[ OK ]\033[0m Found : app/api/schemas
+\033[32m[ OK ]\033[0m Found : app/api/schemas/device_schema.py
+\033[32m[ OK ]\033[0m Found : app/api/schemas/wifi_schema.py
+\033[32m[ OK ]\033[0m Found : app/config
+\033[32m[ OK ]\033[0m Found : app/config/ble_constants.py
+\033[32m[ OK ]\033[0m Found : app/config/constants.py
+\033[32m[ OK ]\033[0m Found : app/config/settings.py
+\033[32m[ OK ]\033[0m Found : app/diagnostics
+\033[32m[ OK ]\033[0m Found : app/diagnostics/health_check.py
+\033[32m[ OK ]\033[0m Found : app/diagnostics/logger.py
+\033[32m[ OK ]\033[0m Found : app/hardware
+\033[32m[ OK ]\033[0m Found : app/hardware/device_manager.py
+\033[32m[ OK ]\033[0m Found : app/hardware/wled_service.py
+\033[32m[ OK ]\033[0m Found : app/main.py
+\033[32m[ OK ]\033[0m Found : app/services
+\033[32m[ OK ]\033[0m Found : app/services/ble
+\033[32m[ OK ]\033[0m Found : app/services/ble/ble_advertiser.py
+\033[32m[ OK ]\033[0m Found : app/services/ble/ble_manager.py
+\033[32m[ OK ]\033[0m Found : app/services/ble/ble_server.py
+\033[32m[ OK ]\033[0m Found : app/services/ble/ble_state.py
+\033[32m[ OK ]\033[0m Found : app/services/rendering
+\033[32m[ OK ]\033[0m Found : app/services/rendering/frame_cache.py
+\033[32m[ OK ]\033[0m Found : app/services/rendering/render_loop.py
+\033[32m[ OK ]\033[0m Found : app/services/rendering/renderer.py
+\033[32m[ OK ]\033[0m Found : app/services/serial
+\033[32m[ OK ]\033[0m Found : app/services/serial/serial_service.py
+\033[32m[ OK ]\033[0m Found : app/services/serial/serial_streamer.py
+\033[32m[ OK ]\033[0m Found : app/services/weather
+\033[32m[ OK ]\033[0m Found : app/services/weather/effects
+\033[32m[ OK ]\033[0m Found : app/services/weather/effects/__init__.py
+\033[32m[ OK ]\033[0m Found : app/services/weather/effects/atmospheric.py
+\033[32m[ OK ]\033[0m Found : app/services/weather/effects/clear_sky.py
+\033[32m[ OK ]\033[0m Found : app/services/weather/effects/stormy.py
+\033[32m[ OK ]\033[0m Found : app/services/weather/weather_engine.py
+\033[32m[ OK ]\033[0m Found : app/services/weather/weather_service.py
+\033[32m[ OK ]\033[0m Found : app/services/wifi
+\033[32m[ OK ]\033[0m Found : app/services/wifi/wifi_manager.py
+\033[32m[ OK ]\033[0m Found : app/services/wifi/wifi_service.py
+\033[32m[ OK ]\033[0m Found : app/services/wifi/wifi_watchdog.py
+\033[32m[ OK ]\033[0m Found : app/utils
+\033[32m[ OK ]\033[0m Found : app/utils/helpers.py
+\033[32m[ OK ]\033[0m Found : app/utils/network_utils.py
+\033[32m[ OK ]\033[0m Found : app/utils/system_utils.py
+\033[32m[ OK ]\033[0m Found : app/workers
+\033[32m[ OK ]\033[0m Found : app/workers/background_tasks.py
+\033[32m[ OK ]\033[0m Found : app/workers/thread_manager.py
+\033[32m[ OK ]\033[0m Found : deploy
+\033[32m[ OK ]\033[0m Found : deploy.sh
+\033[32m[ OK ]\033[0m Found : deploy/assets
+\033[32m[ OK ]\033[0m Found : deploy/assets/version
+\033[32m[ OK ]\033[0m Found : deploy/config
+\033[32m[ OK ]\033[0m Found : deploy/config/config.sh
+\033[32m[ OK ]\033[0m Found : deploy/core
+\033[32m[ OK ]\033[0m Found : deploy/core/banner.sh
+\033[32m[ OK ]\033[0m Found : deploy/core/colors.sh
+\033[32m[ OK ]\033[0m Found : deploy/core/errors.sh
+\033[32m[ OK ]\033[0m Found : deploy/core/logger.sh
+\033[32m[ OK ]\033[0m Found : deploy/core/utils.sh
+\033[32m[ OK ]\033[0m Found : deploy/diagnostics
+\033[32m[ OK ]\033[0m Found : deploy/diagnostics/report.sh
+\033[32m[ OK ]\033[0m Found : deploy/diagnostics/service_logs.sh
+\033[32m[ OK ]\033[0m Found : deploy/diagnostics/system_info.sh
+\033[32m[ OK ]\033[0m Found : deploy/modules
+\033[32m[ OK ]\033[0m Found : deploy/modules/01_cleanup.sh
+\033[32m[ OK ]\033[0m Found : deploy/modules/02_transfer.sh
+\033[32m[ OK ]\033[0m Found : deploy/modules/03_system_packages.sh
+\033[32m[ OK ]\033[0m Found : deploy/modules/04_python_environment.sh
+\033[32m[ OK ]\033[0m Found : deploy/modules/05_python_packages.sh
+\033[32m[ OK ]\033[0m Found : deploy/modules/06_bluetooth.sh
+\033[32m[ OK ]\033[0m Found : deploy/modules/07_system_validation.sh
+\033[32m[ OK ]\033[0m Found : deploy/modules/08_systemd.sh
+\033[32m[ OK ]\033[0m Found : deploy/modules/09_healthcheck.sh
+\033[32m[ OK ]\033[0m Found : deploy/modules/10_finish.sh
+\033[32m[ OK ]\033[0m Found : deploy/rollback
+\033[32m[ OK ]\033[0m Found : deploy/rollback/rollback.sh
+\033[32m[ OK ]\033[0m Found : deploy/validators
+\033[32m[ OK ]\033[0m Found : deploy/validators/bluetooth.sh
+\033[32m[ OK ]\033[0m Found : deploy/validators/network.sh
+\033[32m[ OK ]\033[0m Found : deploy/validators/python.sh
+\033[32m[ OK ]\033[0m Found : deploy/validators/runtime.sh
+\033[32m[ OK ]\033[0m Found : deploy/validators/system.sh
+\033[32m[ OK ]\033[0m Found : health_check.py
+\033[32m[ OK ]\033[0m Found : htmlcov
+\033[32m[ OK ]\033[0m Found : htmlcov/class_index.html
+\033[32m[ OK ]\033[0m Found : htmlcov/coverage_html_cb_dd2e7eb5.js
+\033[32m[ OK ]\033[0m Found : htmlcov/favicon_32_cb_c827f16f.png
+\033[32m[ OK ]\033[0m Found : htmlcov/function_index.html
+\033[32m[ OK ]\033[0m Found : htmlcov/index.html
+\033[32m[ OK ]\033[0m Found : htmlcov/keybd_closed_cb_900cfef5.png
+\033[32m[ OK ]\033[0m Found : htmlcov/status.json
+\033[32m[ OK ]\033[0m Found : htmlcov/style_cb_9ff733b0.css
+\033[32m[ OK ]\033[0m Found : htmlcov/z_12ea42ce24b22c32_device_manager_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_28a317428ddb38fa_ble_server_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_4169b77e5210b0f7_frame_cache_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_4169b77e5210b0f7_render_loop_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_46939803b7da2c59___init___py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_46939803b7da2c59_atmospheric_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_46939803b7da2c59_clear_sky_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_46939803b7da2c59_stormy_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_5f5a17c013354698_main_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_748a0465d46c2a16_system_utils_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_789df396834cd7f9_serial_service_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_7bced6e93b6b263d_led_routes_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_92724abef7b332ce_ble_constants_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_92724abef7b332ce_settings_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_cc6df6c92fbf919b_background_tasks_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_cc6df6c92fbf919b_thread_manager_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_ef3d963b34e3ff04_wifi_manager_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_fa1f900175d15ab1_weather_engine_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_fa1f900175d15ab1_weather_service_py.html
+\033[32m[ OK ]\033[0m Found : readme
+\033[32m[ OK ]\033[0m Found : requirements.txt
+\033[32m[ OK ]\033[0m Found : scripts
+\033[32m[ OK ]\033[0m Found : scripts/deploy.sh
+\033[32m[ OK ]\033[0m Found : scripts/install_pi.sh
+\033[32m[ OK ]\033[0m Found : scripts/reset_ble.sh
+\033[32m[ OK ]\033[0m Found : serial_streamer.py
+\033[32m[ OK ]\033[0m Found : systemd
+\033[32m[ OK ]\033[0m Found : systemd/tinqa.service
+\033[32m[ OK ]\033[0m Found : tests
+\033[32m[ OK ]\033[0m Found : tests/__init__.py
+\033[32m[ OK ]\033[0m Found : tests/test_api.py
+\033[32m[ OK ]\033[0m Found : tests/test_ble.py
+\033[32m[ OK ]\033[0m Found : tests/test_effects.py
+\033[32m[ OK ]\033[0m Found : tests/test_hardware.py
+\033[32m[ OK ]\033[0m Found : tests/test_rendering.py
+\033[32m[ OK ]\033[0m Found : tests/test_services.py
+\033[32m[ OK ]\033[0m Found : tests/test_utils.py
+\033[32m[ OK ]\033[0m Found : tests/test_weather.py
+\033[32m[ OK ]\033[0m Found : tests/test_wifi.py
+\033[32m[ OK ]\033[0m Found : weather_cache.json
+\033[32m[ OK ]\033[0m Deployment verification passed.
+\033[34m[INFO]\033[0m Files deployed :     5170
+\033[32m[ OK ]\033[0m File transfer completed.
+\033[32m[ OK ]\033[0m Completed run_05_transfer
+\033[34m[INFO]\033[0m Executing run_06_system_packages
+\033[34m[INFO]\033[0m Updating APT repository...
+\033[32m[ OK ]\033[0m Repository updated.
+\033[34m[INFO]\033[0m Upgrading installed packages...
+\033[32m[ OK ]\033[0m System packages upgraded.
+\033[34m[INFO]\033[0m All required packages already installed.
+\033[34m[INFO]\033[0m Verifying installed packages...
+\033[32m[ OK ]\033[0m Verified : python3
+\033[32m[ OK ]\033[0m Verified : python3-dev
+\033[32m[ OK ]\033[0m Verified : python3-venv
+\033[32m[ OK ]\033[0m Verified : build-essential
+\033[32m[ OK ]\033[0m Verified : pkg-config
+\033[32m[ OK ]\033[0m Verified : git
+\033[32m[ OK ]\033[0m Verified : curl
+\033[32m[ OK ]\033[0m Verified : wget
+\033[32m[ OK ]\033[0m Verified : rsync
+\033[32m[ OK ]\033[0m Verified : unzip
+\033[32m[ OK ]\033[0m Verified : bluez
+\033[32m[ OK ]\033[0m Verified : bluetooth
+\033[32m[ OK ]\033[0m Verified : network-manager
+\033[32m[ OK ]\033[0m Verified : libdbus-1-dev
+\033[32m[ OK ]\033[0m Verified : python3-dbus
+\033[32m[ OK ]\033[0m Verified : libglib2.0-dev
+\033[32m[ OK ]\033[0m Verified : libgirepository1.0-dev
+\033[32m[ OK ]\033[0m Verified : libopenblas-dev
+\033[34m[INFO]\033[0m Removing unused packages...
+\033[32m[ OK ]\033[0m Package cleanup completed.
+\033[34m[INFO]\033[0m Installed Python packages :        1
+\033[32m[ OK ]\033[0m System package installation completed.
+\033[32m[ OK ]\033[0m Completed run_06_system_packages
+\033[34m[INFO]\033[0m Executing run_07_python_environment
+\033[34m[INFO]\033[0m Checking Python installation...
+\033[32m[ OK ]\033[0m Python detected.
+\033[34m[INFO]\033[0m Preparing virtual environment...
+\033[34m[INFO]\033[0m Virtual environment already exists.
+\033[34m[INFO]\033[0m Activating virtual environment...
+\033[32m[ OK ]\033[0m Virtual environment activated.
+\033[34m[INFO]\033[0m Upgrading pip...
+\033[32m[ OK ]\033[0m Pip upgraded.
+\033[34m[INFO]\033[0m Verifying virtual environment...
+\033[32m[ OK ]\033[0m Virtual environment verified.
+\033[34m[INFO]\033[0m Python Version : Python 3.11.9
+\033[34m[INFO]\033[0m Pip Version    : [MOCK] pip --version
+\033[32m[ OK ]\033[0m Python environment completed.
+\033[32m[ OK ]\033[0m Completed run_07_python_environment
+\033[34m[INFO]\033[0m Executing run_08_python_packages
+\033[34m[INFO]\033[0m Activating virtual environment...
+\033[32m[ OK ]\033[0m Virtual environment activated.
+\033[34m[INFO]\033[0m Installing packages from requirements.txt...
+\033[32m[ OK ]\033[0m Python packages installed.
+\033[34m[INFO]\033[0m Verifying installed packages...
+\033[32m[ OK ]\033[0m Verified : numpy
+\033[32m[ OK ]\033[0m Verified : requests
+\033[32m[ OK ]\033[0m Verified : bleak
+\033[32m[ OK ]\033[0m Verified : pyyaml
+\033[32m[ OK ]\033[0m Verified : opencv-python
+\033[32m[ OK ]\033[0m Verified : pyserial
+\033[34m[INFO]\033[0m Checking dependency integrity...
+\033[32m[ OK ]\033[0m Dependency check passed.
+\033[34m[INFO]\033[0m Saving installed package list...
+\033[32m[ OK ]\033[0m Package list exported.
+\033[34m[INFO]\033[0m Installed Python packages :        1
+\033[32m[ OK ]\033[0m Python package installation completed.
+\033[32m[ OK ]\033[0m Completed run_08_python_packages
+\033[34m[INFO]\033[0m Executing run_09_bluetooth
+\033[34m[INFO]\033[0m Enabling Bluetooth service...
+\033[32m[ OK ]\033[0m Bluetooth service enabled.
+\033[34m[INFO]\033[0m Starting Bluetooth service...
+\033[32m[ OK ]\033[0m Bluetooth service started.
+\033[34m[INFO]\033[0m Waiting for Bluetooth adapter...
+\033[32m[ OK ]\033[0m Bluetooth adapter detected.
+\033[34m[INFO]\033[0m Powering Bluetooth adapter...
+\033[32m[ OK ]\033[0m Bluetooth adapter powered.
+\033[34m[INFO]\033[0m Enabling pairable mode...
+\033[32m[ OK ]\033[0m Pairable mode enabled.
+\033[34m[INFO]\033[0m Enabling discoverable mode...
+\033[32m[ OK ]\033[0m Discoverable mode enabled.
+\033[34m[INFO]\033[0m Running Bluetooth validation...
+\033[34m[INFO]\033[0m Checking Bluetooth service...
+\033[32m[ OK ]\033[0m Bluetooth service is running.
+\033[34m[INFO]\033[0m Checking Bluetooth adapter...
+\033[32m[ OK ]\033[0m Bluetooth adapter detected.
+\033[34m[INFO]\033[0m Checking adapter power...
+\033[32m[ OK ]\033[0m Bluetooth adapter is powered.
+\033[34m[INFO]\033[0m Checking discoverable mode...
+\033[32m[ OK ]\033[0m Adapter is discoverable.
+\033[34m[INFO]\033[0m Checking pairable mode...
+\033[32m[ OK ]\033[0m Adapter is pairable.
+\033[32m[ OK ]\033[0m Bluetooth validation completed.
+\033[32m[ OK ]\033[0m Bluetooth configuration completed.
+\033[32m[ OK ]\033[0m Completed run_09_bluetooth
+\033[34m[INFO]\033[0m Executing run_10_system_validation
+\033[34m[INFO]\033[0m Activating virtual environment...
+\033[32m[ OK ]\033[0m Virtual environment activated.
+\033[34m[INFO]\033[0m Validating project structure...
+\033[32m[ OK ]\033[0m Found : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa
+\033[32m[ OK ]\033[0m Found : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/venv
+\033[32m[ OK ]\033[0m Found : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/requirements.txt
+\033[34m[INFO]\033[0m Comparing deployed project structure...
+\033[32m[ OK ]\033[0m Found : .
+\033[32m[ OK ]\033[0m Found : app
+\033[32m[ OK ]\033[0m Found : app/api
+\033[32m[ OK ]\033[0m Found : app/api/routes
+\033[32m[ OK ]\033[0m Found : app/api/routes/ble_routes.py
+\033[32m[ OK ]\033[0m Found : app/api/routes/health_routes.py
+\033[32m[ OK ]\033[0m Found : app/api/routes/led_routes.py
+\033[32m[ OK ]\033[0m Found : app/api/routes/wifi_routes.py
+\033[32m[ OK ]\033[0m Found : app/api/schemas
+\033[32m[ OK ]\033[0m Found : app/api/schemas/device_schema.py
+\033[32m[ OK ]\033[0m Found : app/api/schemas/wifi_schema.py
+\033[32m[ OK ]\033[0m Found : app/config
+\033[32m[ OK ]\033[0m Found : app/config/ble_constants.py
+\033[32m[ OK ]\033[0m Found : app/config/constants.py
+\033[32m[ OK ]\033[0m Found : app/config/settings.py
+\033[32m[ OK ]\033[0m Found : app/diagnostics
+\033[32m[ OK ]\033[0m Found : app/diagnostics/health_check.py
+\033[32m[ OK ]\033[0m Found : app/diagnostics/logger.py
+\033[32m[ OK ]\033[0m Found : app/hardware
+\033[32m[ OK ]\033[0m Found : app/hardware/device_manager.py
+\033[32m[ OK ]\033[0m Found : app/hardware/wled_service.py
+\033[32m[ OK ]\033[0m Found : app/main.py
+\033[32m[ OK ]\033[0m Found : app/services
+\033[32m[ OK ]\033[0m Found : app/services/ble
+\033[32m[ OK ]\033[0m Found : app/services/ble/ble_advertiser.py
+\033[32m[ OK ]\033[0m Found : app/services/ble/ble_manager.py
+\033[32m[ OK ]\033[0m Found : app/services/ble/ble_server.py
+\033[32m[ OK ]\033[0m Found : app/services/ble/ble_state.py
+\033[32m[ OK ]\033[0m Found : app/services/rendering
+\033[32m[ OK ]\033[0m Found : app/services/rendering/frame_cache.py
+\033[32m[ OK ]\033[0m Found : app/services/rendering/render_loop.py
+\033[32m[ OK ]\033[0m Found : app/services/rendering/renderer.py
+\033[32m[ OK ]\033[0m Found : app/services/serial
+\033[32m[ OK ]\033[0m Found : app/services/serial/serial_service.py
+\033[32m[ OK ]\033[0m Found : app/services/serial/serial_streamer.py
+\033[32m[ OK ]\033[0m Found : app/services/weather
+\033[32m[ OK ]\033[0m Found : app/services/weather/effects
+\033[32m[ OK ]\033[0m Found : app/services/weather/effects/__init__.py
+\033[32m[ OK ]\033[0m Found : app/services/weather/effects/atmospheric.py
+\033[32m[ OK ]\033[0m Found : app/services/weather/effects/clear_sky.py
+\033[32m[ OK ]\033[0m Found : app/services/weather/effects/stormy.py
+\033[32m[ OK ]\033[0m Found : app/services/weather/weather_engine.py
+\033[32m[ OK ]\033[0m Found : app/services/weather/weather_service.py
+\033[32m[ OK ]\033[0m Found : app/services/wifi
+\033[32m[ OK ]\033[0m Found : app/services/wifi/wifi_manager.py
+\033[32m[ OK ]\033[0m Found : app/services/wifi/wifi_service.py
+\033[32m[ OK ]\033[0m Found : app/services/wifi/wifi_watchdog.py
+\033[32m[ OK ]\033[0m Found : app/utils
+\033[32m[ OK ]\033[0m Found : app/utils/helpers.py
+\033[32m[ OK ]\033[0m Found : app/utils/network_utils.py
+\033[32m[ OK ]\033[0m Found : app/utils/system_utils.py
+\033[32m[ OK ]\033[0m Found : app/workers
+\033[32m[ OK ]\033[0m Found : app/workers/background_tasks.py
+\033[32m[ OK ]\033[0m Found : app/workers/thread_manager.py
+\033[32m[ OK ]\033[0m Found : deploy
+\033[32m[ OK ]\033[0m Found : deploy.sh
+\033[32m[ OK ]\033[0m Found : deploy/assets
+\033[32m[ OK ]\033[0m Found : deploy/assets/version
+\033[32m[ OK ]\033[0m Found : deploy/config
+\033[32m[ OK ]\033[0m Found : deploy/config/config.sh
+\033[32m[ OK ]\033[0m Found : deploy/core
+\033[32m[ OK ]\033[0m Found : deploy/core/banner.sh
+\033[32m[ OK ]\033[0m Found : deploy/core/colors.sh
+\033[32m[ OK ]\033[0m Found : deploy/core/errors.sh
+\033[32m[ OK ]\033[0m Found : deploy/core/logger.sh
+\033[32m[ OK ]\033[0m Found : deploy/core/utils.sh
+\033[32m[ OK ]\033[0m Found : deploy/diagnostics
+\033[32m[ OK ]\033[0m Found : deploy/diagnostics/report.sh
+\033[32m[ OK ]\033[0m Found : deploy/diagnostics/service_logs.sh
+\033[32m[ OK ]\033[0m Found : deploy/diagnostics/system_info.sh
+\033[32m[ OK ]\033[0m Found : deploy/modules
+\033[32m[ OK ]\033[0m Found : deploy/modules/01_cleanup.sh
+\033[32m[ OK ]\033[0m Found : deploy/modules/02_transfer.sh
+\033[32m[ OK ]\033[0m Found : deploy/modules/03_system_packages.sh
+\033[32m[ OK ]\033[0m Found : deploy/modules/04_python_environment.sh
+\033[32m[ OK ]\033[0m Found : deploy/modules/05_python_packages.sh
+\033[32m[ OK ]\033[0m Found : deploy/modules/06_bluetooth.sh
+\033[32m[ OK ]\033[0m Found : deploy/modules/07_system_validation.sh
+\033[32m[ OK ]\033[0m Found : deploy/modules/08_systemd.sh
+\033[32m[ OK ]\033[0m Found : deploy/modules/09_healthcheck.sh
+\033[32m[ OK ]\033[0m Found : deploy/modules/10_finish.sh
+\033[32m[ OK ]\033[0m Found : deploy/rollback
+\033[32m[ OK ]\033[0m Found : deploy/rollback/rollback.sh
+\033[32m[ OK ]\033[0m Found : deploy/validators
+\033[32m[ OK ]\033[0m Found : deploy/validators/bluetooth.sh
+\033[32m[ OK ]\033[0m Found : deploy/validators/network.sh
+\033[32m[ OK ]\033[0m Found : deploy/validators/python.sh
+\033[32m[ OK ]\033[0m Found : deploy/validators/runtime.sh
+\033[32m[ OK ]\033[0m Found : deploy/validators/system.sh
+\033[32m[ OK ]\033[0m Found : health_check.py
+\033[32m[ OK ]\033[0m Found : htmlcov
+\033[32m[ OK ]\033[0m Found : htmlcov/class_index.html
+\033[32m[ OK ]\033[0m Found : htmlcov/coverage_html_cb_dd2e7eb5.js
+\033[32m[ OK ]\033[0m Found : htmlcov/favicon_32_cb_c827f16f.png
+\033[32m[ OK ]\033[0m Found : htmlcov/function_index.html
+\033[32m[ OK ]\033[0m Found : htmlcov/index.html
+\033[32m[ OK ]\033[0m Found : htmlcov/keybd_closed_cb_900cfef5.png
+\033[32m[ OK ]\033[0m Found : htmlcov/status.json
+\033[32m[ OK ]\033[0m Found : htmlcov/style_cb_9ff733b0.css
+\033[32m[ OK ]\033[0m Found : htmlcov/z_12ea42ce24b22c32_device_manager_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_28a317428ddb38fa_ble_server_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_4169b77e5210b0f7_frame_cache_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_4169b77e5210b0f7_render_loop_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_46939803b7da2c59___init___py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_46939803b7da2c59_atmospheric_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_46939803b7da2c59_clear_sky_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_46939803b7da2c59_stormy_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_5f5a17c013354698_main_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_748a0465d46c2a16_system_utils_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_789df396834cd7f9_serial_service_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_7bced6e93b6b263d_led_routes_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_92724abef7b332ce_ble_constants_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_92724abef7b332ce_settings_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_cc6df6c92fbf919b_background_tasks_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_cc6df6c92fbf919b_thread_manager_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_ef3d963b34e3ff04_wifi_manager_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_fa1f900175d15ab1_weather_engine_py.html
+\033[32m[ OK ]\033[0m Found : htmlcov/z_fa1f900175d15ab1_weather_service_py.html
+\033[32m[ OK ]\033[0m Found : readme
+\033[32m[ OK ]\033[0m Found : requirements.txt
+\033[32m[ OK ]\033[0m Found : scripts
+\033[32m[ OK ]\033[0m Found : scripts/deploy.sh
+\033[32m[ OK ]\033[0m Found : scripts/install_pi.sh
+\033[32m[ OK ]\033[0m Found : scripts/reset_ble.sh
+\033[32m[ OK ]\033[0m Found : serial_streamer.py
+\033[32m[ OK ]\033[0m Found : systemd
+\033[32m[ OK ]\033[0m Found : systemd/tinqa.service
+\033[32m[ OK ]\033[0m Found : tests
+\033[32m[ OK ]\033[0m Found : tests/__init__.py
+\033[32m[ OK ]\033[0m Found : tests/test_api.py
+\033[32m[ OK ]\033[0m Found : tests/test_ble.py
+\033[32m[ OK ]\033[0m Found : tests/test_effects.py
+\033[32m[ OK ]\033[0m Found : tests/test_hardware.py
+\033[32m[ OK ]\033[0m Found : tests/test_rendering.py
+\033[32m[ OK ]\033[0m Found : tests/test_services.py
+\033[32m[ OK ]\033[0m Found : tests/test_utils.py
+\033[32m[ OK ]\033[0m Found : tests/test_weather.py
+\033[32m[ OK ]\033[0m Found : tests/test_wifi.py
+\033[32m[ OK ]\033[0m Found : weather_cache.json
+\033[34m[INFO]\033[0m Validating Python runtime...
+\033[32m[ OK ]\033[0m Python runtime validated.
+\033[34m[INFO]\033[0m Validating Python dependencies...
+\033[32m[ OK ]\033[0m Dependency validation completed.
+\033[34m[INFO]\033[0m Checking application entry point...
+\033[32m[ OK ]\033[0m Application entry point found.
+\033[34m[INFO]\033[0m Testing application import...
+\033[32m[ OK ]\033[0m Application import successful.
+\033[34m[INFO]\033[0m Validating Bluetooth subsystem...
+\033[34m[INFO]\033[0m Checking Bluetooth service...
+\033[32m[ OK ]\033[0m Bluetooth service is running.
+\033[34m[INFO]\033[0m Checking Bluetooth adapter...
+\033[32m[ OK ]\033[0m Bluetooth adapter detected.
+\033[34m[INFO]\033[0m Checking adapter power...
+\033[32m[ OK ]\033[0m Bluetooth adapter is powered.
+\033[34m[INFO]\033[0m Checking discoverable mode...
+\033[32m[ OK ]\033[0m Adapter is discoverable.
+\033[34m[INFO]\033[0m Checking pairable mode...
+\033[32m[ OK ]\033[0m Adapter is pairable.
+\033[32m[ OK ]\033[0m Bluetooth runtime validated.
+\033[32m[ OK ]\033[0m System validation completed.
+\033[32m[ OK ]\033[0m Completed run_10_system_validation
+\033[34m[INFO]\033[0m Executing run_11_systemd
+\033[34m[INFO]\033[0m Checking systemd template...
+\033[32m[ OK ]\033[0m Template found.
+\033[34m[INFO]\033[0m Generating systemd service...
+\033[32m[ OK ]\033[0m Service generated.
+\033[34m[INFO]\033[0m Installing systemd service...
+\033[32m[ OK ]\033[0m Service installed.
+\033[34m[INFO]\033[0m Reloading systemd...
+\033[32m[ OK ]\033[0m Systemd reloaded.
+\033[34m[INFO]\033[0m Enabling TinQa service...
+\033[32m[ OK ]\033[0m Service enabled.
+\033[34m[INFO]\033[0m Starting TinQa service...
+\033[32m[ OK ]\033[0m Service started.
+\033[34m[INFO]\033[0m Verifying installation...
+\033[32m[ OK ]\033[0m Systemd installation verified.
+\033[32m[ OK ]\033[0m Systemd configuration completed.
+\033[32m[ OK ]\033[0m Completed run_11_systemd
+\033[34m[INFO]\033[0m Executing run_12_functional_tests
+\033[34m[INFO]\033[0m Checking Project Directory...
+\033[32m[ OK ]\033[0m Project Directory
+\033[34m[INFO]\033[0m Checking Virtual Environment...
+\033[31m[FAIL]\033[0m Virtual Environment
+\033[34m[INFO]\033[0m Checking Python Runtime...
+\033[31m[FAIL]\033[0m Python Runtime
+\033[34m[INFO]\033[0m Checking Python Packages...
+\033[31m[FAIL]\033[0m Python Module : numpy
+\033[31m[FAIL]\033[0m Python Module : requests
+\033[31m[FAIL]\033[0m Python Module : bleak
+\033[31m[FAIL]\033[0m Python Module : yaml
+\033[31m[FAIL]\033[0m Python Module : cv2
+\033[31m[FAIL]\033[0m Python Module : serial
+\033[34m[INFO]\033[0m Checking Bluetooth...
+\033[31m[FAIL]\033[0m Bluetooth Adapter
+\033[34m[INFO]\033[0m Checking Services...
+\033[32m[ OK ]\033[0m Functional tests completed.
+\033[32m[ OK ]\033[0m Completed run_12_functional_tests
+\033[34m[INFO]\033[0m Executing run_13_health_report
+\033[31m[FAIL]\033[0m Deployment failed.
+\033[31m[FAIL]\033[0m Line : 77
+\033[31m[FAIL]\033[0m Exit : 1
+\033[34m[INFO]\033[0m Collecting system information...
+\033[32m[ OK ]\033[0m System information saved.
+\033[34m[INFO]\033[0m Collecting service logs...
+\033[32m[ OK ]\033[0m Service logs collected.
+\033[34m[INFO]\033[0m Generating diagnostic report...
+\033[32m[ OK ]\033[0m Diagnostic bundle created.
+\033[34m[INFO]\033[0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260723_213351.tar.gz
+\033[34m[INFO]\033[0m Size    :  36K
+\033[33m[WARN]\033[0m Rollback skipped (TEST MODE).
+\033[31m[FAIL]\033[0m Deployment failed.
+\033[31m[FAIL]\033[0m Line : 78
+\033[31m[FAIL]\033[0m Exit : 1
+\033[34m[INFO]\033[0m Collecting system information...
+\033[32m[ OK ]\033[0m System information saved.
+\033[34m[INFO]\033[0m Collecting service logs...
+\033[32m[ OK ]\033[0m Service logs collected.
+\033[34m[INFO]\033[0m Generating diagnostic report...
+\033[32m[ OK ]\033[0m Diagnostic bundle created.
+\033[34m[INFO]\033[0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260723_213351.tar.gz
+\033[34m[INFO]\033[0m Size    :  36K
+\033[33m[WARN]\033[0m Rollback skipped (TEST MODE).
+\033[31m[FAIL]\033[0m Deployment failed.
+\033[31m[FAIL]\033[0m Line : 79
+\033[31m[FAIL]\033[0m Exit : 1
+\033[34m[INFO]\033[0m Collecting system information...
+\033[32m[ OK ]\033[0m System information saved.
+\033[34m[INFO]\033[0m Collecting service logs...
+\033[32m[ OK ]\033[0m Service logs collected.
+\033[34m[INFO]\033[0m Generating diagnostic report...
+\033[32m[ OK ]\033[0m Diagnostic bundle created.
+\033[34m[INFO]\033[0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260723_213351.tar.gz
+\033[34m[INFO]\033[0m Size    :  36K
+\033[33m[WARN]\033[0m Rollback skipped (TEST MODE).
+\033[31m[FAIL]\033[0m Deployment failed.
+\033[31m[FAIL]\033[0m Line : 80
+\033[31m[FAIL]\033[0m Exit : 1
+\033[34m[INFO]\033[0m Collecting system information...
+\033[32m[ OK ]\033[0m System information saved.
+\033[34m[INFO]\033[0m Collecting service logs...
+\033[32m[ OK ]\033[0m Service logs collected.
+\033[34m[INFO]\033[0m Generating diagnostic report...
+\033[32m[ OK ]\033[0m Diagnostic bundle created.
+\033[34m[INFO]\033[0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260723_213351.tar.gz
+\033[34m[INFO]\033[0m Size    :  36K
+\033[33m[WARN]\033[0m Rollback skipped (TEST MODE).
+\033[32m[ OK ]\033[0m Health report generated.
+\033[34m[INFO]\033[0m Report : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/health_report.txt
+\033[32m[ OK ]\033[0m Health report generated.
+\033[32m[ OK ]\033[0m Completed run_13_health_report
+\033[34m[INFO]\033[0m Executing run_14_finish
+\033[34m[INFO]\033[0m Deployment Summary
+\033[34m[INFO]\033[0m Generated Reports

@@ -1,0 +1,3 @@
+● tinqa.service - Fake Service
+     Loaded: loaded (/Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/etc/systemd/system/tinqa.service; enabled)
+     Active: active (running)

@@ -1,0 +1,16 @@
+[Unit]
+Description=TinQa Weather Sync System
+After=network.target bluetooth.service NetworkManager.service
+Requires=bluetooth.service
+
+[Service]
+# Points to the new app/main.py location
+ExecStart=/home/pi/TinQa_Weather_Sync_System/venv/bin/python /home/pi/TinQa_Weather_Sync_System/app/main.py
+WorkingDirectory=/home/pi/TinQa_Weather_Sync_System
+Restart=always
+RestartSec=5
+User=pi
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

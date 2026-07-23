@@ -176,9 +176,9 @@ collect_python_logs() {
 
     append "================ PYTHON ================"
 
-    if [[ -d "${APPLICATION_LOG_DIRECTORY}" ]]; then
+    if [[ -d "${DEPLOYMENT_LOG_DIRECTORY}" ]]; then
 
-        find "${APPLICATION_LOG_DIRECTORY}" \
+        find "${DEPLOYMENT_LOG_DIRECTORY}" \
             -type f \
             -name "*.log" \
             -print | while read -r file

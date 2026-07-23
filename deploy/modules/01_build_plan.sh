@@ -48,16 +48,19 @@ run_01_build_plan() {
         inspect_set internet yes
         inspect_set venv_exists no
 
-        plan_add run_02_cleanup
-        plan_add run_03_transfer
-        plan_add run_04_system_packages
-        plan_add run_05_python_environment
-        plan_add run_06_python_packages
-        plan_add run_07_bluetooth
-        plan_add run_08_system_validation
-        plan_add run_09_systemd
-        plan_add run_10_healthcheck
-        plan_add run_11_finish
+        plan_add run_02_self_healing
+        plan_add run_03_os_update
+        plan_add run_04_cleanup
+        plan_add run_05_transfer
+        plan_add run_06_system_packages
+        plan_add run_07_python_environment
+        plan_add run_08_python_packages
+        plan_add run_09_bluetooth
+        plan_add run_10_system_validation
+        plan_add run_11_systemd
+        plan_add run_12_functional_tests
+        plan_add run_13_health_report
+        plan_add run_14_finish
 
         plan_print
 
@@ -75,29 +78,51 @@ run_01_build_plan() {
     inspect_remote venv_exists test -d /opt/tinqa/venv
 
     ###########################################################################
-    # Build Deployment Plan
+    # Always execute framework preparation
     ###########################################################################
 
+    plan_add run_02_self_healing \
+        "Repair operating system if required"
+
+    plan_add run_03_os_update \
+        "Bring operating system to latest state"
+
+    ###########################################################################
+    # Conditional deployment
+    ###########################################################################
+
+    plan_add run_04_cleanup
+
+    plan_add run_05_transfer
+
     inspect_no python_installed && \
-        plan_add run_04_system_packages \
+        plan_add run_06_system_packages \
         "Python runtime missing"
 
     inspect_no venv_exists && \
-        plan_add run_05_python_environment \
+        plan_add run_07_python_environment \
         "Python virtual environment missing"
 
-    plan_add run_06_python_packages
+    plan_add run_08_python_packages
 
     inspect_no bluetooth_ok && \
-        plan_add run_07_bluetooth \
+        plan_add run_09_bluetooth \
         "Bluetooth adapter unavailable"
 
-    plan_add run_08_system_validation \
-        "Final verification"
+    ###########################################################################
+    # Verification
+    ###########################################################################
 
-    plan_add run_09_systemd
-    plan_add run_10_healthcheck
-    plan_add run_11_finish
+    plan_add run_10_system_validation \
+        "Final system verification"
+
+    plan_add run_11_systemd
+
+    plan_add run_12_functional_tests
+
+    plan_add run_13_health_report
+
+    plan_add run_14_finish
 
     ###########################################################################
     # Summary

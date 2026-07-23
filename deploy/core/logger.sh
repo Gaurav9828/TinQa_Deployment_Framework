@@ -408,9 +408,9 @@ init_logger() {
 
     DEPLOYMENT_START_TIME=$(date +%s)
 
-    mkdir -p "${LOG_DIRECTORY}"
+    mkdir -p "${DEPLOYMENT_LOG_DIRECTORY}"
 
-    LOG_FILE="${LOG_DIRECTORY}/deployment_$(date +%Y%m%d_%H%M%S).log"
+    LOG_FILE="${DEPLOYMENT_LOG_DIRECTORY}/deployment_$(date +%Y%m%d_%H%M%S).log"
 
     touch "${LOG_FILE}"
 
@@ -635,9 +635,9 @@ init_logger() {
 
     DEPLOYMENT_START_TIME=$(date +%s)
 
-    mkdir -p "${LOG_DIRECTORY}"
+    mkdir -p "${DEPLOYMENT_LOG_DIRECTORY}"
 
-    LOG_FILE="${LOG_DIRECTORY}/deployment_$(date +"%Y%m%d_%H%M%S").log"
+    LOG_FILE="${DEPLOYMENT_LOG_DIRECTORY}/deployment_$(date +"%Y%m%d_%H%M%S").log"
 
     touch "${LOG_FILE}"
 
@@ -734,9 +734,9 @@ _print_environment() {
 
 initialize_logger() {
 
-    mkdir -p "${LOG_DIRECTORY}"
+    mkdir -p "${DEPLOYMENT_LOG_DIRECTORY}"
 
-    LOG_FILE="${LOG_DIRECTORY}/deployment_$(date +%Y%m%d_%H%M%S).log"
+    LOG_FILE="${DEPLOYMENT_LOG_DIRECTORY}/deployment_$(date +%Y%m%d_%H%M%S).log"
 
     touch "${LOG_FILE}"
 

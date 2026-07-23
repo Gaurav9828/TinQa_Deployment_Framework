@@ -100,7 +100,7 @@ deployment_summary() {
 
     append "Deployment Logs   : ${DEPLOYMENT_LOG_DIRECTORY}"
 
-    append "Application Logs  : ${APPLICATION_LOG_DIRECTORY}"
+    append "Application Logs  : ${LOG_DIRECTORY}"
 
     append ""
 
@@ -145,10 +145,8 @@ collect_reports() {
 ###############################################################################
 
 compress_report() {
-
-    tar -czf "${ARCHIVE_FILE}" \
+    tar --exclude="*.tar.gz" -czf "${ARCHIVE_FILE}" \
         -C "${DIAGNOSTIC_LOG_DIRECTORY}" .
-
 }
 
 ###############################################################################

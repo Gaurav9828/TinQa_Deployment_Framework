@@ -32,12 +32,22 @@ then
 
     SANDBOX_ROOT="${TEST_ROOT}/sandbox"
 
-    export TEST_ROOT
+    FAKE_PI_ROOT="${SANDBOX_ROOT}"
 
+    export TEST_ROOT
     export SANDBOX_ROOT
+    export FAKE_PI_ROOT
 
     export PROJECT_SOURCE_ROOT="$(cd "${DEPLOY_ROOT}/../../TinQa_Weather_Sync_System" && pwd)"
 
+fi
+
+if [[ "${DEPLOY_MODE}" == "TEST" ]]
+then
+    source "${TEST_ROOT}/mock_commands.sh"
+    echo "TEST_ROOT=$TEST_ROOT"
+    echo "Loading: ${TEST_ROOT}/mock_commands.sh"
+    ls -l "${TEST_ROOT}/mock_commands.sh"
 fi
 
 ###############################################################################
@@ -48,6 +58,7 @@ source "${DEPLOY_ROOT}/core/config.sh"
 source "${DEPLOY_ROOT}/core/logger.sh"
 source "${DEPLOY_ROOT}/core/banner.sh"
 source "${DEPLOY_ROOT}/core/execution/module_runner.sh"
+source "${DEPLOY_ROOT}/core/execution/target_exec.sh"
 source "${DEPLOY_ROOT}/core/inspect.sh"
 source "${DEPLOY_ROOT}/core/planner/action_plan.sh"
 source "${DEPLOY_ROOT}/core/registry/modules.sh"
@@ -57,10 +68,33 @@ source "${DEPLOY_ROOT}/core/registry/modules.sh"
 ###############################################################################
 
 source "${DEPLOY_ROOT}/config/framework.conf"
+source "${DEPLOY_ROOT}/config/deployment.conf"
 source "${DEPLOY_ROOT}/config/files.conf"
 source "${DEPLOY_ROOT}/config/packages.conf"
 source "${DEPLOY_ROOT}/config/python_modules.conf"
 source "${DEPLOY_ROOT}/config/services.conf"
+
+###############################################################################
+# TEST MODE PATH OVERRIDES
+###############################################################################
+
+if [[ "${DEPLOY_MODE}" == "TEST" ]]
+then
+
+    DEPLOYMENT_LOG_DIRECTORY="${SANDBOX_ROOT}/var/log/tinqa-deploy"
+
+    DEPLOYMENT_DIAGNOSTICS_DIRECTORY="${DEPLOYMENT_LOG_DIRECTORY}/diagnostics"
+
+    DEPLOYMENT_REPORT_DIRECTORY="${DEPLOYMENT_LOG_DIRECTORY}/reports"
+
+    DEPLOYMENT_ROLLBACK_DIRECTORY="${DEPLOYMENT_LOG_DIRECTORY}/rollback"
+
+    export DEPLOYMENT_LOG_DIRECTORY
+    export DEPLOYMENT_DIAGNOSTICS_DIRECTORY
+    export DEPLOYMENT_REPORT_DIRECTORY
+    export DEPLOYMENT_ROLLBACK_DIRECTORY
+
+fi
 
 ###############################################################################
 # Diagnostics
@@ -112,9 +146,10 @@ done < <(
 ###############################################################################
 # Deployment Information
 ###############################################################################
+export DEPLOYMENT_START_EPOCH
+DEPLOYMENT_START_EPOCH="$(date +%s)"
 
 export DEPLOYMENT_START_TIME
-
 DEPLOYMENT_START_TIME="$(date)"
 
 ###############################################################################
@@ -157,6 +192,95 @@ deployment_error() {
 trap 'deployment_error ${LINENO}' ERR
 
 ###############################################################################
+# Framework Validation
+###############################################################################
+
+validate_linux() {
+
+    if [[ "$(uname -s)" != "Linux" ]]
+    then
+        log_error "TinQa deployment only supports Linux."
+        exit 1
+    fi
+
+}
+
+validate_raspberry_pi() {
+
+    [[ "${DEPLOY_MODE}" == "TEST" ]] && return 0
+
+    if ! grep -qi raspberry /proc/device-tree/model 2>/dev/null
+    then
+        log_error "This deployment only supports Raspberry Pi."
+
+        exit 1
+    fi
+
+}
+
+validate_sudo() {
+
+    [[ "${DEPLOY_MODE}" == "TEST" ]] && return 0
+
+    log_info "Validating sudo access..."
+
+    sudo -v
+
+    log_success "Sudo access verified."
+
+}
+
+validate_internet() {
+
+    [[ "${DEPLOY_MODE}" == "TEST" ]] && return 0
+
+    log_info "Checking internet connectivity..."
+
+    if ping -c1 8.8.8.8 >/dev/null 2>&1
+    then
+        log_success "Internet connection available."
+    else
+        log_error "Internet connection unavailable."
+
+        exit 1
+    fi
+
+}
+
+validate_required_commands() {
+
+    [[ "${DEPLOY_MODE}" == "TEST" ]] && return 0
+
+    local command
+
+    local required_commands=(
+
+        git
+        rsync
+        python3
+        systemctl
+        bluetoothctl
+        apt-get
+
+    )
+
+    for command in "${required_commands[@]}"
+    do
+
+        if command -v "${command}" >/dev/null 2>&1
+        then
+            log_success "Found : ${command}"
+        else
+            log_error "Missing : ${command}"
+
+            exit 1
+        fi
+
+    done
+
+}
+
+###############################################################################
 # Initialize
 ###############################################################################
 
@@ -170,11 +294,20 @@ initialize_framework() {
 
     show_banner
 
+    validate_linux
+
+    validate_raspberry_pi
+
+    validate_sudo
+
+    validate_internet
+
+    validate_required_commands
+
     # section "TinQa Deployment Framework"
 
     if [[ "${DEPLOY_MODE}" == "TEST" ]]
     then
-        source "${TEST_ROOT}/mock_commands.sh"
 
         log_warning "Running in TEST MODE"
 
@@ -221,6 +354,10 @@ execute_modules() {
             "${module#run_}"
 
         log_info "Executing ${module}"
+
+        echo "DEBUG: module=${module}"
+
+        declare -F "${module}" || echo "Function ${module} NOT FOUND"
 
         run_module "${module}"
 
