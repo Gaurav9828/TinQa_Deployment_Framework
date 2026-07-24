@@ -16,7 +16,7 @@
 \033[32m[ OK ]\033[0m Completed run_03_os_update
 \033[34m[INFO]\033[0m Executing run_04_cleanup
 \033[34m[INFO]\033[0m Stopping application service...
-\033[32m[ OK ]\033[0m Application service stopped.
+\033[33m[WARN]\033[0m Application service not installed.
 \033[34m[INFO]\033[0m Cleaning temporary directory...
 \033[32m[ OK ]\033[0m Temporary directory cleaned.
 \033[34m[INFO]\033[0m Removing runtime files...
@@ -95,41 +95,6 @@
 \033[32m[ OK ]\033[0m Found : app/workers
 \033[32m[ OK ]\033[0m Found : app/workers/background_tasks.py
 \033[32m[ OK ]\033[0m Found : app/workers/thread_manager.py
-\033[32m[ OK ]\033[0m Found : deploy
-\033[32m[ OK ]\033[0m Found : deploy.sh
-\033[32m[ OK ]\033[0m Found : deploy/assets
-\033[32m[ OK ]\033[0m Found : deploy/assets/version
-\033[32m[ OK ]\033[0m Found : deploy/config
-\033[32m[ OK ]\033[0m Found : deploy/config/config.sh
-\033[32m[ OK ]\033[0m Found : deploy/core
-\033[32m[ OK ]\033[0m Found : deploy/core/banner.sh
-\033[32m[ OK ]\033[0m Found : deploy/core/colors.sh
-\033[32m[ OK ]\033[0m Found : deploy/core/errors.sh
-\033[32m[ OK ]\033[0m Found : deploy/core/logger.sh
-\033[32m[ OK ]\033[0m Found : deploy/core/utils.sh
-\033[32m[ OK ]\033[0m Found : deploy/diagnostics
-\033[32m[ OK ]\033[0m Found : deploy/diagnostics/report.sh
-\033[32m[ OK ]\033[0m Found : deploy/diagnostics/service_logs.sh
-\033[32m[ OK ]\033[0m Found : deploy/diagnostics/system_info.sh
-\033[32m[ OK ]\033[0m Found : deploy/modules
-\033[32m[ OK ]\033[0m Found : deploy/modules/01_cleanup.sh
-\033[32m[ OK ]\033[0m Found : deploy/modules/02_transfer.sh
-\033[32m[ OK ]\033[0m Found : deploy/modules/03_system_packages.sh
-\033[32m[ OK ]\033[0m Found : deploy/modules/04_python_environment.sh
-\033[32m[ OK ]\033[0m Found : deploy/modules/05_python_packages.sh
-\033[32m[ OK ]\033[0m Found : deploy/modules/06_bluetooth.sh
-\033[32m[ OK ]\033[0m Found : deploy/modules/07_system_validation.sh
-\033[32m[ OK ]\033[0m Found : deploy/modules/08_systemd.sh
-\033[32m[ OK ]\033[0m Found : deploy/modules/09_healthcheck.sh
-\033[32m[ OK ]\033[0m Found : deploy/modules/10_finish.sh
-\033[32m[ OK ]\033[0m Found : deploy/rollback
-\033[32m[ OK ]\033[0m Found : deploy/rollback/rollback.sh
-\033[32m[ OK ]\033[0m Found : deploy/validators
-\033[32m[ OK ]\033[0m Found : deploy/validators/bluetooth.sh
-\033[32m[ OK ]\033[0m Found : deploy/validators/network.sh
-\033[32m[ OK ]\033[0m Found : deploy/validators/python.sh
-\033[32m[ OK ]\033[0m Found : deploy/validators/runtime.sh
-\033[32m[ OK ]\033[0m Found : deploy/validators/system.sh
 \033[32m[ OK ]\033[0m Found : health_check.py
 \033[32m[ OK ]\033[0m Found : htmlcov
 \033[32m[ OK ]\033[0m Found : htmlcov/class_index.html
@@ -181,7 +146,7 @@
 \033[32m[ OK ]\033[0m Found : tests/test_wifi.py
 \033[32m[ OK ]\033[0m Found : weather_cache.json
 \033[32m[ OK ]\033[0m Deployment verification passed.
-\033[34m[INFO]\033[0m Files deployed :     5170
+\033[34m[INFO]\033[0m Files deployed :     5143
 \033[32m[ OK ]\033[0m File transfer completed.
 \033[32m[ OK ]\033[0m Completed run_05_transfer
 \033[34m[INFO]\033[0m Executing run_06_system_packages
@@ -253,8 +218,7 @@
 \033[32m[ OK ]\033[0m Bluetooth service enabled.
 \033[34m[INFO]\033[0m Starting Bluetooth service...
 \033[32m[ OK ]\033[0m Bluetooth service started.
-\033[34m[INFO]\033[0m Waiting for Bluetooth adapter...
-\033[32m[ OK ]\033[0m Bluetooth adapter detected.
+\033[32m[ OK ]\033[0m Bluetooth adapter detected (TEST MODE).
 \033[34m[INFO]\033[0m Powering Bluetooth adapter...
 \033[32m[ OK ]\033[0m Bluetooth adapter powered.
 \033[34m[INFO]\033[0m Enabling pairable mode...
@@ -337,41 +301,6 @@
 \033[32m[ OK ]\033[0m Found : app/workers
 \033[32m[ OK ]\033[0m Found : app/workers/background_tasks.py
 \033[32m[ OK ]\033[0m Found : app/workers/thread_manager.py
-\033[32m[ OK ]\033[0m Found : deploy
-\033[32m[ OK ]\033[0m Found : deploy.sh
-\033[32m[ OK ]\033[0m Found : deploy/assets
-\033[32m[ OK ]\033[0m Found : deploy/assets/version
-\033[32m[ OK ]\033[0m Found : deploy/config
-\033[32m[ OK ]\033[0m Found : deploy/config/config.sh
-\033[32m[ OK ]\033[0m Found : deploy/core
-\033[32m[ OK ]\033[0m Found : deploy/core/banner.sh
-\033[32m[ OK ]\033[0m Found : deploy/core/colors.sh
-\033[32m[ OK ]\033[0m Found : deploy/core/errors.sh
-\033[32m[ OK ]\033[0m Found : deploy/core/logger.sh
-\033[32m[ OK ]\033[0m Found : deploy/core/utils.sh
-\033[32m[ OK ]\033[0m Found : deploy/diagnostics
-\033[32m[ OK ]\033[0m Found : deploy/diagnostics/report.sh
-\033[32m[ OK ]\033[0m Found : deploy/diagnostics/service_logs.sh
-\033[32m[ OK ]\033[0m Found : deploy/diagnostics/system_info.sh
-\033[32m[ OK ]\033[0m Found : deploy/modules
-\033[32m[ OK ]\033[0m Found : deploy/modules/01_cleanup.sh
-\033[32m[ OK ]\033[0m Found : deploy/modules/02_transfer.sh
-\033[32m[ OK ]\033[0m Found : deploy/modules/03_system_packages.sh
-\033[32m[ OK ]\033[0m Found : deploy/modules/04_python_environment.sh
-\033[32m[ OK ]\033[0m Found : deploy/modules/05_python_packages.sh
-\033[32m[ OK ]\033[0m Found : deploy/modules/06_bluetooth.sh
-\033[32m[ OK ]\033[0m Found : deploy/modules/07_system_validation.sh
-\033[32m[ OK ]\033[0m Found : deploy/modules/08_systemd.sh
-\033[32m[ OK ]\033[0m Found : deploy/modules/09_healthcheck.sh
-\033[32m[ OK ]\033[0m Found : deploy/modules/10_finish.sh
-\033[32m[ OK ]\033[0m Found : deploy/rollback
-\033[32m[ OK ]\033[0m Found : deploy/rollback/rollback.sh
-\033[32m[ OK ]\033[0m Found : deploy/validators
-\033[32m[ OK ]\033[0m Found : deploy/validators/bluetooth.sh
-\033[32m[ OK ]\033[0m Found : deploy/validators/network.sh
-\033[32m[ OK ]\033[0m Found : deploy/validators/python.sh
-\033[32m[ OK ]\033[0m Found : deploy/validators/runtime.sh
-\033[32m[ OK ]\033[0m Found : deploy/validators/system.sh
 \033[32m[ OK ]\033[0m Found : health_check.py
 \033[32m[ OK ]\033[0m Found : htmlcov
 \033[32m[ OK ]\033[0m Found : htmlcov/class_index.html
@@ -465,18 +394,14 @@
 \033[34m[INFO]\033[0m Checking Project Directory...
 \033[32m[ OK ]\033[0m Project Directory
 \033[34m[INFO]\033[0m Checking Virtual Environment...
-\033[31m[FAIL]\033[0m Virtual Environment
+\033[32m[ OK ]\033[0m Virtual Environment
 \033[34m[INFO]\033[0m Checking Python Runtime...
-\033[31m[FAIL]\033[0m Python Runtime
+\033[32m[ OK ]\033[0m Python Runtime
 \033[34m[INFO]\033[0m Checking Python Packages...
-\033[31m[FAIL]\033[0m Python Module : numpy
-\033[31m[FAIL]\033[0m Python Module : requests
-\033[31m[FAIL]\033[0m Python Module : bleak
-\033[31m[FAIL]\033[0m Python Module : yaml
-\033[31m[FAIL]\033[0m Python Module : cv2
-\033[31m[FAIL]\033[0m Python Module : serial
+\033[32m[ OK ]\033[0m Python Module : yaml (TEST MODE)
+\033[32m[ OK ]\033[0m Python Module : cv2 (TEST MODE)
 \033[34m[INFO]\033[0m Checking Bluetooth...
-\033[31m[FAIL]\033[0m Bluetooth Adapter
+\033[32m[ OK ]\033[0m Bluetooth Adapter
 \033[34m[INFO]\033[0m Checking Services...
 \033[32m[ OK ]\033[0m Functional tests completed.
 \033[32m[ OK ]\033[0m Completed run_12_functional_tests
@@ -490,8 +415,8 @@
 \033[32m[ OK ]\033[0m Service logs collected.
 \033[34m[INFO]\033[0m Generating diagnostic report...
 \033[32m[ OK ]\033[0m Diagnostic bundle created.
-\033[34m[INFO]\033[0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260723_212639.tar.gz
-\033[34m[INFO]\033[0m Size    :  36K
+\033[34m[INFO]\033[0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260724_125505.tar.gz
+\033[34m[INFO]\033[0m Size    :  28K
 \033[33m[WARN]\033[0m Rollback skipped (TEST MODE).
 \033[31m[FAIL]\033[0m Deployment failed.
 \033[31m[FAIL]\033[0m Line : 78
@@ -502,8 +427,8 @@
 \033[32m[ OK ]\033[0m Service logs collected.
 \033[34m[INFO]\033[0m Generating diagnostic report...
 \033[32m[ OK ]\033[0m Diagnostic bundle created.
-\033[34m[INFO]\033[0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260723_212639.tar.gz
-\033[34m[INFO]\033[0m Size    :  36K
+\033[34m[INFO]\033[0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260724_125505.tar.gz
+\033[34m[INFO]\033[0m Size    :  28K
 \033[33m[WARN]\033[0m Rollback skipped (TEST MODE).
 \033[31m[FAIL]\033[0m Deployment failed.
 \033[31m[FAIL]\033[0m Line : 79
@@ -514,8 +439,8 @@
 \033[32m[ OK ]\033[0m Service logs collected.
 \033[34m[INFO]\033[0m Generating diagnostic report...
 \033[32m[ OK ]\033[0m Diagnostic bundle created.
-\033[34m[INFO]\033[0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260723_212639.tar.gz
-\033[34m[INFO]\033[0m Size    :  36K
+\033[34m[INFO]\033[0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260724_125505.tar.gz
+\033[34m[INFO]\033[0m Size    :  28K
 \033[33m[WARN]\033[0m Rollback skipped (TEST MODE).
 \033[31m[FAIL]\033[0m Deployment failed.
 \033[31m[FAIL]\033[0m Line : 80
@@ -526,18 +451,19 @@
 \033[32m[ OK ]\033[0m Service logs collected.
 \033[34m[INFO]\033[0m Generating diagnostic report...
 \033[32m[ OK ]\033[0m Diagnostic bundle created.
-\033[34m[INFO]\033[0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260723_212639.tar.gz
-\033[34m[INFO]\033[0m Size    :  36K
+\033[34m[INFO]\033[0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260724_125505.tar.gz
+\033[34m[INFO]\033[0m Size    :  28K
 \033[33m[WARN]\033[0m Rollback skipped (TEST MODE).
-\033[31m[FAIL]\033[0m Deployment failed.
-\033[31m[FAIL]\033[0m Line : 93
-\033[31m[FAIL]\033[0m Exit : 1
-\033[34m[INFO]\033[0m Collecting system information...
-\033[32m[ OK ]\033[0m System information saved.
-\033[34m[INFO]\033[0m Collecting service logs...
-\033[32m[ OK ]\033[0m Service logs collected.
-\033[34m[INFO]\033[0m Generating diagnostic report...
-\033[32m[ OK ]\033[0m Diagnostic bundle created.
-\033[34m[INFO]\033[0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260723_212639.tar.gz
-\033[34m[INFO]\033[0m Size    :  36K
-\033[33m[WARN]\033[0m Rollback skipped (TEST MODE).
+\033[32m[ OK ]\033[0m Health report generated.
+\033[34m[INFO]\033[0m Report : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/health_report.txt
+\033[32m[ OK ]\033[0m Health report generated.
+\033[32m[ OK ]\033[0m Completed run_13_health_report
+\033[34m[INFO]\033[0m Executing run_14_finish
+\033[34m[INFO]\033[0m Deployment Summary
+\033[34m[INFO]\033[0m Generated Reports
+\033[34m[INFO]\033[0m Reboot Status
+\033[32m[ OK ]\033[0m No reboot required.
+\033[34m[INFO]\033[0m Deployment Result
+\033[32m[ OK ]\033[0m TinQa is READY for production deployment.
+\033[32m[ OK ]\033[0m Completed run_14_finish
+\033[32m[ OK ]\033[0m Deployment execution completed.

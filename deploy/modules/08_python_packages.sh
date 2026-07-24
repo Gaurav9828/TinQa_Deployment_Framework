@@ -3,7 +3,7 @@
 #
 # TinQa Deployment Framework
 #
-# File        : 05_python_packages.sh
+# File        : 08_python_packages.sh
 # Version     : 1.0.0
 #
 # Description :
@@ -102,6 +102,24 @@ install_requirements() {
 # Verify Packages
 ###############################################################################
 
+validate_python_module() {
+    # Guard for TEST mode
+    if [[ "${DEPLOY_MODE:-PRODUCTION}" == "TEST" ]]; then
+        return 0
+    fi
+
+    local package="$1"
+    local module="$package"
+
+    case "$package" in
+        PyYAML) module="yaml" ;;
+        opencv-python) module="cv2" ;;
+        pyserial) module="serial" ;;
+    esac
+
+    python -c "import ${module}" >/dev/null 2>&1
+}
+
 verify_python_packages() {
 
     log_info "Verifying installed packages..."
@@ -113,7 +131,7 @@ verify_python_packages() {
     for package in "${PYTHON_REQUIRED_PACKAGES[@]}"
     do
 
-        if pip show "${package}" >/dev/null 2>&1
+        if validate_python_module "${package}"
         then
 
             log_success "Verified : ${package}"

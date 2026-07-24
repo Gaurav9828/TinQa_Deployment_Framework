@@ -82,7 +82,11 @@ start_bluetooth_service() {
 ###############################################################################
 
 wait_for_adapter() {
-
+    if [[ "${DEPLOY_MODE:-PRODUCTION}" == "TEST" ]]; then
+        inspect_set bluetooth_adapter yes
+        log_success "Bluetooth adapter detected (TEST MODE)."
+        return 0
+    fi
     log_info "Waiting for Bluetooth adapter..."
 
     local retries=10

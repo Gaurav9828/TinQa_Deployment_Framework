@@ -62,6 +62,8 @@ source "${DEPLOY_ROOT}/core/execution/target_exec.sh"
 source "${DEPLOY_ROOT}/core/inspect.sh"
 source "${DEPLOY_ROOT}/core/planner/action_plan.sh"
 source "${DEPLOY_ROOT}/core/registry/modules.sh"
+source "${DEPLOY_ROOT}/core/healing/repair.sh"
+
 
 ###############################################################################
 # Configuration

@@ -1,6 +1,6 @@
 ========================================================================
 TinQa Deployment Health Report
-Generated : Thu Jul 23 21:38:50 IST 2026
+Generated : Fri Jul 24 13:17:57 IST 2026
 ========================================================================
 
 SYSTEM INFORMATION
@@ -15,8 +15,8 @@ Hostname : REMOTE_HOST not configured.
 [32m[ OK ][0m Service logs collected.
 [34m[INFO][0m Generating diagnostic report...
 [32m[ OK ][0m Diagnostic bundle created.
-[34m[INFO][0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260723_213846.tar.gz
-[34m[INFO][0m Size    :  36K
+[34m[INFO][0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260724_131752.tar.gz
+[34m[INFO][0m Size    :  28K
 [33m[WARN][0m Rollback skipped (TEST MODE).
 Kernel   : REMOTE_HOST not configured.
 [31m[FAIL][0m Deployment failed.
@@ -28,8 +28,8 @@ Kernel   : REMOTE_HOST not configured.
 [32m[ OK ][0m Service logs collected.
 [34m[INFO][0m Generating diagnostic report...
 [32m[ OK ][0m Diagnostic bundle created.
-[34m[INFO][0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260723_213846.tar.gz
-[34m[INFO][0m Size    :  36K
+[34m[INFO][0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260724_131752.tar.gz
+[34m[INFO][0m Size    :  28K
 [33m[WARN][0m Rollback skipped (TEST MODE).
 CPU      : REMOTE_HOST not configured.
 [31m[FAIL][0m Deployment failed.
@@ -41,8 +41,8 @@ CPU      : REMOTE_HOST not configured.
 [32m[ OK ][0m Service logs collected.
 [34m[INFO][0m Generating diagnostic report...
 [32m[ OK ][0m Diagnostic bundle created.
-[34m[INFO][0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260723_213846.tar.gz
-[34m[INFO][0m Size    :  36K
+[34m[INFO][0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260724_131752.tar.gz
+[34m[INFO][0m Size    :  28K
 [33m[WARN][0m Rollback skipped (TEST MODE).
 Python   : REMOTE_HOST not configured.
 [31m[FAIL][0m Deployment failed.
@@ -54,8 +54,8 @@ Python   : REMOTE_HOST not configured.
 [32m[ OK ][0m Service logs collected.
 [34m[INFO][0m Generating diagnostic report...
 [32m[ OK ][0m Diagnostic bundle created.
-[34m[INFO][0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260723_213846.tar.gz
-[34m[INFO][0m Size    :  36K
+[34m[INFO][0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260724_131752.tar.gz
+[34m[INFO][0m Size    :  28K
 [33m[WARN][0m Rollback skipped (TEST MODE).
 
 DISK
@@ -98,7 +98,7 @@ Application Entry                   : yes
 Application Import                  : yes
 Bluetooth                           : yes
 Systemd                             : yes
-Functional Tests                    : no
+Functional Tests                    : yes
 
 REBOOT
 Required : NO

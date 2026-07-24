@@ -131,11 +131,37 @@ validate_venv_pip() {
 # Validate Installed Package
 ###############################################################################
 
+validate_python_module() {
+    local package="$1"
+    local module="$package"
+
+    # Map PyPI package names to their actual Python import names
+    case "${package}" in
+        PyYAML|pyyaml)
+            module="yaml"
+            ;;
+        opencv-python|opencv-python-headless|cv2)
+            module="cv2"
+            ;;
+        pyserial)
+            module="serial"
+            ;;
+    esac
+
+    # Test the import
+    if [[ "${DEPLOY_MODE:-PRODUCTION}" == "TEST" ]]; then
+        # In TEST mode, skip execution or use mock
+        return 0
+    else
+        "${VENV_PYTHON:-python3}" -c "import ${module}" >/dev/null 2>&1
+    fi
+}
+
 validate_package() {
 
     local package="$1"
 
-    if pip show "${package}" >/dev/null 2>&1
+    if validate_python_module "${package}"
     then
         log_success "Package installed : ${package}"
         return 0

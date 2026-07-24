@@ -7,8 +7,6 @@
 
 set -Eeuo pipefail
 
-source "${DEPLOY_ROOT}/core/repair.sh"
-
 run_module() {
 
     local module="$1"

@@ -2,7 +2,8 @@
 \033[34m[INFO]\033[0m Sandbox : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox
 \033[34m[INFO]\033[0m Executing run_02_self_healing
 \033[34m[INFO]\033[0m Checking virtual environment...
-\033[32m[ OK ]\033[0m Virtual environment exists.
+\033[33m[WARN]\033[0m Virtual environment missing.
+\033[32m[ OK ]\033[0m Virtual environment created.
 \033[32m[ OK ]\033[0m Self healing completed.
 \033[32m[ OK ]\033[0m Completed run_02_self_healing
 \033[34m[INFO]\033[0m Executing run_03_os_update
@@ -16,7 +17,7 @@
 \033[32m[ OK ]\033[0m Completed run_03_os_update
 \033[34m[INFO]\033[0m Executing run_04_cleanup
 \033[34m[INFO]\033[0m Stopping application service...
-\033[32m[ OK ]\033[0m Application service stopped.
+\033[33m[WARN]\033[0m Application service not installed.
 \033[34m[INFO]\033[0m Cleaning temporary directory...
 \033[32m[ OK ]\033[0m Temporary directory cleaned.
 \033[34m[INFO]\033[0m Removing runtime files...
@@ -253,8 +254,7 @@
 \033[32m[ OK ]\033[0m Bluetooth service enabled.
 \033[34m[INFO]\033[0m Starting Bluetooth service...
 \033[32m[ OK ]\033[0m Bluetooth service started.
-\033[34m[INFO]\033[0m Waiting for Bluetooth adapter...
-\033[32m[ OK ]\033[0m Bluetooth adapter detected.
+\033[32m[ OK ]\033[0m Bluetooth adapter detected (TEST MODE).
 \033[34m[INFO]\033[0m Powering Bluetooth adapter...
 \033[32m[ OK ]\033[0m Bluetooth adapter powered.
 \033[34m[INFO]\033[0m Enabling pairable mode...
@@ -465,18 +465,14 @@
 \033[34m[INFO]\033[0m Checking Project Directory...
 \033[32m[ OK ]\033[0m Project Directory
 \033[34m[INFO]\033[0m Checking Virtual Environment...
-\033[31m[FAIL]\033[0m Virtual Environment
+\033[32m[ OK ]\033[0m Virtual Environment
 \033[34m[INFO]\033[0m Checking Python Runtime...
-\033[31m[FAIL]\033[0m Python Runtime
+\033[32m[ OK ]\033[0m Python Runtime
 \033[34m[INFO]\033[0m Checking Python Packages...
-\033[31m[FAIL]\033[0m Python Module : numpy
-\033[31m[FAIL]\033[0m Python Module : requests
-\033[31m[FAIL]\033[0m Python Module : bleak
-\033[31m[FAIL]\033[0m Python Module : yaml
-\033[31m[FAIL]\033[0m Python Module : cv2
-\033[31m[FAIL]\033[0m Python Module : serial
+\033[32m[ OK ]\033[0m Python Module : yaml (TEST MODE)
+\033[32m[ OK ]\033[0m Python Module : cv2 (TEST MODE)
 \033[34m[INFO]\033[0m Checking Bluetooth...
-\033[31m[FAIL]\033[0m Bluetooth Adapter
+\033[32m[ OK ]\033[0m Bluetooth Adapter
 \033[34m[INFO]\033[0m Checking Services...
 \033[32m[ OK ]\033[0m Functional tests completed.
 \033[32m[ OK ]\033[0m Completed run_12_functional_tests
@@ -490,8 +486,8 @@
 \033[32m[ OK ]\033[0m Service logs collected.
 \033[34m[INFO]\033[0m Generating diagnostic report...
 \033[32m[ OK ]\033[0m Diagnostic bundle created.
-\033[34m[INFO]\033[0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260723_212750.tar.gz
-\033[34m[INFO]\033[0m Size    :  36K
+\033[34m[INFO]\033[0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260724_125041.tar.gz
+\033[34m[INFO]\033[0m Size    :  28K
 \033[33m[WARN]\033[0m Rollback skipped (TEST MODE).
 \033[31m[FAIL]\033[0m Deployment failed.
 \033[31m[FAIL]\033[0m Line : 78
@@ -502,8 +498,8 @@
 \033[32m[ OK ]\033[0m Service logs collected.
 \033[34m[INFO]\033[0m Generating diagnostic report...
 \033[32m[ OK ]\033[0m Diagnostic bundle created.
-\033[34m[INFO]\033[0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260723_212750.tar.gz
-\033[34m[INFO]\033[0m Size    :  36K
+\033[34m[INFO]\033[0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260724_125041.tar.gz
+\033[34m[INFO]\033[0m Size    :  28K
 \033[33m[WARN]\033[0m Rollback skipped (TEST MODE).
 \033[31m[FAIL]\033[0m Deployment failed.
 \033[31m[FAIL]\033[0m Line : 79
@@ -514,8 +510,8 @@
 \033[32m[ OK ]\033[0m Service logs collected.
 \033[34m[INFO]\033[0m Generating diagnostic report...
 \033[32m[ OK ]\033[0m Diagnostic bundle created.
-\033[34m[INFO]\033[0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260723_212750.tar.gz
-\033[34m[INFO]\033[0m Size    :  36K
+\033[34m[INFO]\033[0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260724_125041.tar.gz
+\033[34m[INFO]\033[0m Size    :  28K
 \033[33m[WARN]\033[0m Rollback skipped (TEST MODE).
 \033[31m[FAIL]\033[0m Deployment failed.
 \033[31m[FAIL]\033[0m Line : 80
@@ -526,18 +522,19 @@
 \033[32m[ OK ]\033[0m Service logs collected.
 \033[34m[INFO]\033[0m Generating diagnostic report...
 \033[32m[ OK ]\033[0m Diagnostic bundle created.
-\033[34m[INFO]\033[0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260723_212750.tar.gz
-\033[34m[INFO]\033[0m Size    :  36K
+\033[34m[INFO]\033[0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260724_125041.tar.gz
+\033[34m[INFO]\033[0m Size    :  28K
 \033[33m[WARN]\033[0m Rollback skipped (TEST MODE).
-\033[31m[FAIL]\033[0m Deployment failed.
-\033[31m[FAIL]\033[0m Line : 93
-\033[31m[FAIL]\033[0m Exit : 1
-\033[34m[INFO]\033[0m Collecting system information...
-\033[32m[ OK ]\033[0m System information saved.
-\033[34m[INFO]\033[0m Collecting service logs...
-\033[32m[ OK ]\033[0m Service logs collected.
-\033[34m[INFO]\033[0m Generating diagnostic report...
-\033[32m[ OK ]\033[0m Diagnostic bundle created.
-\033[34m[INFO]\033[0m Archive : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/diagnostics/TinQa_Diagnostics_20260723_212750.tar.gz
-\033[34m[INFO]\033[0m Size    :  36K
-\033[33m[WARN]\033[0m Rollback skipped (TEST MODE).
+\033[32m[ OK ]\033[0m Health report generated.
+\033[34m[INFO]\033[0m Report : /Users/gaurav/Desktop/TinQa/TinQa_Deployment_Framework/deploy/tests/sandbox/opt/tinqa/logs/health_report.txt
+\033[32m[ OK ]\033[0m Health report generated.
+\033[32m[ OK ]\033[0m Completed run_13_health_report
+\033[34m[INFO]\033[0m Executing run_14_finish
+\033[34m[INFO]\033[0m Deployment Summary
+\033[34m[INFO]\033[0m Generated Reports
+\033[34m[INFO]\033[0m Reboot Status
+\033[32m[ OK ]\033[0m No reboot required.
+\033[34m[INFO]\033[0m Deployment Result
+\033[32m[ OK ]\033[0m TinQa is READY for production deployment.
+\033[32m[ OK ]\033[0m Completed run_14_finish
+\033[32m[ OK ]\033[0m Deployment execution completed.
